@@ -19,6 +19,8 @@ Common workflow:
 ## Current Run Notes
 - The repository contains full source utilities and dataset files for Exercise 10.
 - During automated batch figure export in this environment, no Exercise 10 figures were saved to `figures/` (manifest is empty).
+- The MATLAB environment available here does not include the Deep Learning Toolbox, so `exercise10.m` cannot run end-to-end.
+- The Python environment has an incomplete TensorFlow installation (`ModuleNotFoundError: No module named tensorflow.python`), so `exercise10.py` cannot be executed successfully.
 - This report is therefore based on the provided solution scripts and project structure.
 
 ## Conclusion

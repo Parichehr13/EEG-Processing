@@ -19,12 +19,15 @@ Perform event-related time-frequency analysis for three oddball conditions (stan
 - Produces the same TF and alpha-topography views at group level.
 
 ## Results
-Available generated figures correspond to Part A:
+Generated figures now include both Part A and Part B outputs:
 
+### Part A
 ![Exercise 9a - Time-Frequency Output](figures/exercise9a_fig_001.png)
 ![Exercise 9a - Alpha Topography Output](figures/exercise9a_fig_002.png)
 
-Part B figures were not generated in this run because `TF_Power_GA.mat` was not available.
+### Part B
+![Exercise 9b - Group Time-Frequency Output](figures/exercise9b_fig_001.png)
+![Exercise 9b - Group Alpha Topography Output](figures/exercise9b_fig_002.png)
 
 ## Conclusion
 The implemented pipeline supports condition-specific ERSP characterization and alpha-band spatial-temporal tracking, with group-level analysis ready once grand-average inputs are provided.
