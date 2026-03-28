@@ -19,7 +19,7 @@ Main preprocessing and split steps:
 6. Inspect class counts per split.
 
 ## Model and Training
-Model: EEGNet (`exercise10/python/exercise10_utils/utils.py`), as requested in the lab handout.
+Model: EEGNet
 
 Training setup used in the executed run:
 - optimizer: SGD with momentum,
