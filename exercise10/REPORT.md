@@ -6,7 +6,7 @@ Train a convolutional neural network (EEGNet) to classify single-trial motor ima
 - right hand,
 - feet,
 - tongue.
-- 
+
 ## Data and Preprocessing
 Dataset: BCI IV2a subject 008 (provided `.mat` file in the Python utilities folder).
 
@@ -69,13 +69,3 @@ Interpretation:
 - The model learns stable discriminative patterns (high train/validation scores).
 - Test performance remains solid but lower than train/validation, indicating expected domain/generalization difficulty on held-out session data.
 - Spatial-weight aggregation supports neurophysiological plausibility of the learned solution (motor-area relevance).
-
-## Reproducibility
-Execution script used for figure generation:
-- `exercise10/python/run_exercise10_export.py`
-
-Generated outputs:
-- `exercise10/figures/exercise10_py_fig_001.png`
-- `exercise10/figures/exercise10_py_fig_002.png`
-- `exercise10/figures/exercise10_py_fig_003.png`
-- `exercise10/figures/exercise10_py_fig_004.png`
