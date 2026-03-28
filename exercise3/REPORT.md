@@ -30,7 +30,7 @@ From the provided solution and IC inspection:
 
 Removed set in reconstruction: `IC1, IC2, IC19`.
 
-## Results and Figures (All Exported Point-by-Point)
+## Results and Figures
 ### Point 1 - Raw EEG (before correction)
 ![Point 1 - Raw EEG](figures/exercise3_p01_fig_001.png)
 
