@@ -8,11 +8,6 @@ The convolutional neural network is EEGNet and the dataset is from the BCI IV2a 
 EEGNet from https://doi.org/10.1088/1741-2552/aace8c.
 BCI IV2a from https://doi.org/10.3389/fnins.2012.00055.
 
-Author
-------
-Davide Borra, 2022
-"""
-
 # In[ ]:
 
 
@@ -24,7 +19,7 @@ from sklearn.metrics import confusion_matrix
 from utils import load_bci_iv2a, EEGNet
 
 
-# # Exercise 11 – Classification of motor imagery with a convolutional neural network from single EEG trials
+# # Exercise 10 – Classification of motor imagery with a convolutional neural network from single EEG trials
 
 # In[ ]:
 
