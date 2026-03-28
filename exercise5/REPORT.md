@@ -31,7 +31,7 @@ Based on the script inspection and comments, removed ICs:
 
 Removed set in reconstruction: `IC1, IC3, IC6, IC7, IC8`.
 
-## Results and Figures (All Exported Point-by-Point)
+## Results and Figures
 ### Point 1 - Raw 13-channel EEG (before correction)
 ![Point 1 - Raw EEG](figures/exercise5_p01_fig_001.png)
 
