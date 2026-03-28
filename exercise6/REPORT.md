@@ -16,7 +16,7 @@ Analyze how EEG spectral content changes across three phases (Relax 1, Task, Rel
   - demixing matrix: `matrixW_Exercise6.txt`
   - IC topomap file: `mapICs_Exercise6.fig`
 
-## Procedure (Aligned with Exercise Points)
+## Procedure 
 1. Loaded 13-channel EEG and plotted full-duration traces.
 2. Computed baseline PSD of raw EEG channels (`pwelch`).
 3. Prepared data export for EEGLAB.
@@ -36,7 +36,7 @@ Analyze how EEG spectral content changes across three phases (Relax 1, Task, Rel
 From IC inspection and script logic, removed:
 - `IC1`, `IC2`, `IC3`, `IC4`, `IC8`
 
-## Results and Figures (All Exported Point-by-Point)
+## Results and Figures 
 ### Point 1 - Raw EEG (before correction)
 ![Point 1 - Raw EEG](figures/exercise6_p01_fig_001.png)
 
