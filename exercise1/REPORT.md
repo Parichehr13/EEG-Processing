@@ -1,7 +1,7 @@
 # Report: Exercise 1 - EEG Preprocessing (Subject 035)
 
 ## Objective
-Apply the first preprocessing steps to continuous EEG from a trial-based oddball experiment, following the requirements in `Laboratory_Exercise1.pdf`.
+Apply the first preprocessing steps to continuous EEG from a trial-based oddball experiment.
 
 ## Dataset and Task
 - File: `sub-035_ses-01_task-Rest_eeg.mat`
