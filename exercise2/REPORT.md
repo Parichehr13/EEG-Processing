@@ -1,34 +1,60 @@
-# Report: Exercise 2
+# Report: Exercise 2 - PCA and ICA on Synthetic Mixtures
 
 ## Objective
-Evaluate PCA and ICA on synthetic mixtures of independent source signals.
+Study the difference between Principal Component Analysis (PCA) and Independent Component Analysis (ICA) for source separation, using synthetic signals with known ground truth.
 
-## Method Summary
-- Generated three independent sources (sinusoidal, triangular, square-like).
-- Built linear mixtures with:
-  - 3 observed channels,
-  - 5 observed channels.
-- Computed principal components through covariance eigendecomposition.
-- Applied ICA demixing matrices exported from EEGLAB:
-  - directly on mixed signals,
-  - on reduced PCA subspace (first three PCs),
-  - and with PCA reduction inside ICA.
+## Exercise Setup (from `Laboratory_Exercise2.pdf`)
+- Duration: 10 s
+- Sampling frequency: 500 Hz
+- Independent sources:
+  - `s1`: sinusoid (5 Hz, amplitude 0.75)
+  - `s2`: triangle wave (7 Hz, amplitude 1)
+  - `s3`: square-like wave (3 Hz, amplitude 0.5, duty 40%)
+- Signals are centered before mixing.
 
-## Results
-The outputs show the expected behavior:
-- PCA decorrelates mixtures but does not recover fully independent source waveforms.
-- ICA recovers components with morphology closer to original generating signals.
-- PCA-before-ICA works as dimensionality reduction for overdetermined mixtures.
+## Method (Point-by-Point)
+1. Generated three centered independent sources and mixed them with a `3x3` mixing matrix.
+2. Plotted original sources and observed mixtures.
+3. Computed PCA via covariance eigendecomposition and plotted the principal components.
+4. Exported/loaded EEGLAB demixing matrix for the `3-variable` case and reconstructed ICs.
+5. Built an overdetermined case by mixing the same 3 sources into `5 observed variables` (`5x3` mixing matrix).
+6. Computed PCA on the 5-variable set and inspected component variances.
+7. Kept the first 3 PCs (`Y3`) and applied ICA in EEGLAB on this reduced space.
+8. Also evaluated EEGLAB ICA with internal PCA option (`'PCA',3`) directly on the 5-variable dataset.
 
-![Exercise 2 - Sources and Initial Mixtures](figures/exercise2_fig_001.png)
-![Exercise 2 - PCA Components](figures/exercise2_fig_002.png)
-![Exercise 2 - ICA Recovery](figures/exercise2_fig_003.png)
-![Exercise 2 - Five-Channel Mixtures](figures/exercise2_fig_004.png)
-![Exercise 2 - Five-Channel PCA](figures/exercise2_fig_005.png)
-![Exercise 2 - ICA on PCA-Reduced Data](figures/exercise2_fig_006.png)
-![Exercise 2 - ICA with Internal PCA](figures/exercise2_fig_007.png)
-![Exercise 2 - Additional Separation Output](figures/exercise2_fig_008.png)
+## Results and Figure Mapping
+### Figure 1 - Original sources and 3-variable mixtures
+![Figure 1 - Sources and 3-var mixtures](figures/exercise2_fig_001.png)
+
+### Figure 2 - PCA on 3-variable mixtures
+![Figure 2 - PCA (3-variable case)](figures/exercise2_fig_002.png)
+
+### Figure 3 - ICA on 3-variable mixtures
+![Figure 3 - ICA recovery (3-variable case)](figures/exercise2_fig_003.png)
+
+### Figure 4 - 5-variable mixtures
+![Figure 4 - 5-variable observed mixtures](figures/exercise2_fig_004.png)
+
+### Figure 5 - PCA on 5-variable mixtures
+![Figure 5 - PCA (5-variable case)](figures/exercise2_fig_005.png)
+
+### Figure 6 - ICA on first 3 PCs (`Y3`)
+![Figure 6 - ICA after PCA reduction](figures/exercise2_fig_006.png)
+
+### Figure 7 - ICA with EEGLAB internal PCA (`'PCA',3`)
+![Figure 7 - ICA with internal PCA](figures/exercise2_fig_007.png)
+
+### Figure 8 - Additional ICA/PCA separation output
+![Figure 8 - Additional separation output](figures/exercise2_fig_008.png)
+
+## Discussion
+- PCA decorrelates the observed variables and orders components by variance, but does not generally recover the original independent generators.
+- ICA uses higher-order statistics and better matches the morphology of the true sources (up to scale/sign/permutation ambiguity).
+- In the 5-variable overdetermined case, PCA is useful to reduce dimensionality to the effective source dimension (`3`) before ICA.
+- EEGLAB internal PCA (`'PCA',3`) and explicit PCA-then-ICA are consistent approaches for this scenario.
 
 ## Conclusion
-This exercise confirms the standard workflow for source separation: PCA for compact representation and ICA for approximate recovery of statistically independent latent generators.
+Exercise 2 confirms the complementary roles of PCA and ICA:
+- PCA is effective for compact representation and dimensionality reduction.
+- ICA is the key step for recovering statistically independent latent sources from linear mixtures.
 
