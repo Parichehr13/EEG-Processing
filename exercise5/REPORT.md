@@ -12,7 +12,7 @@ Apply ICA-based artifact rejection to a 13-channel EEG recording with evident oc
   - demixing matrix: `matrixW_Exercise5.txt`
   - IC topomap file: `mapICs_Exercise5.fig`
 
-## Procedure (Aligned with Exercise Points)
+## Procedure 
 1. Loaded 13-channel EEG and plotted full recording (45 s).
 2. Computed/visualized PSD of all channels (`pwelch`).
 3. Prepared `.mat` data export for EEGLAB.
