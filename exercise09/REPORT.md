@@ -12,7 +12,7 @@ The main physiological marker discussed in the lab notes is **alpha-band (8-14 H
 - `sub-003_PreprocessStep2.mat`, `sub-035_PreprocessStep2.mat`: single-subject cleaned EEG epochs (`60 x 500 x q`).
 - `TF_Power_GA.mat`: precomputed group-level time-frequency power.
 - `Standard-10-20-Cap60.locs`: channel locations for topoplots.
-- `Exercise9a_Solution.m`, `Exercise9b_Solution.m`, `TF_colormap.m`.
+- `Exercise9a.m`, `Exercise9b.m`, `TF_colormap.m`.
 
 ## Methods
 ### 9a: Within-subject time-frequency analysis

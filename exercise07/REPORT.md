@@ -14,8 +14,8 @@ Exercise 7 starts from Exercise 1 outputs (`*_PreprocessStep1.mat`) where data a
 - screened for bad channels.
 
 Two subject workflows are included:
-- Subject 035: `Exercise7_Subj035/Exercise7_Solution.m`
-- Subject 003: `Exercise1_7_Subj003/Exercise7_Solution_Subj003.m` (optional branch)
+- Subject 035: `Exercise7_Subj035/Exercise7.m`
+- Subject 003: `Exercise1_7_Subj003/Exercise7_Subj003.m` (optional branch)
 
 ## Workflow Summary
 1. Load `PreprocessStep1` data.

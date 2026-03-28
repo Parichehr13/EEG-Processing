@@ -20,7 +20,7 @@ This exercise starts from `PreprocessStep2` outputs, meaning data are already cl
 - `sub-035_PreprocessStep2.mat`, `sub-003_PreprocessStep2.mat`: single-subject epoched EEG (`60 x 500 x trials`).
 - `WSA_allsubjects.mat`: condition-specific WSA across all subjects, used for GA.
 - `Standard-10-20-Cap60.locs`: channel geometry for scalp interpolation.
-- `Exercise8a_Solution.m`, `Exercise8b_Solution.m`: reference scripts.
+- `Exercise8a.m`, `Exercise8b.m`: reference scripts.
 
 ## Exercise 8a - Single-Subject ERP (WSA)
 ### Pipeline
