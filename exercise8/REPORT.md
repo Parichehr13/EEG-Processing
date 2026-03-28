@@ -11,7 +11,7 @@ Two analysis levels are used:
 - **Exercise 8b:** Grand Average (GA) across subjects.
 
 ## Methodological Context
-Following the Section 2 preprocessing logic, the goal is to improve signal-to-noise ratio while preserving the neural signal of interest.  
+The goal is to improve signal-to-noise ratio while preserving the neural signal of interest.  
 In ERP analysis, averaging across repeated trials is the main denoising step: stimulus-locked components add constructively, while non-locked fluctuations are attenuated.
 
 This exercise starts from `PreprocessStep2` outputs, meaning data are already cleaned, re-referenced, and epoched before ERP-specific averaging.
@@ -65,8 +65,3 @@ Baseline removal shifts each epoch relative to its own pre-stimulus mean, reduci
 ## WSA vs GA (Key Difference)
 - **WSA (8a):** preserves subject-specific morphology and amplitude.
 - **GA (8b):** emphasizes effects stable across subjects, typically with smoother and less noisy traces.
-
-## Reproducibility Notes
-- Figures were exported by running each script point-by-point with `tools/export_exercise8_by_point.m`.
-- Exports use high-resolution PNG (`600 DPI`) and enlarged canvas settings for report quality.
-
