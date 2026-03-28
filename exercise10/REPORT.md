@@ -6,12 +6,7 @@ Train a convolutional neural network (EEGNet) to classify single-trial motor ima
 - right hand,
 - feet,
 - tongue.
-
-This report is based on:
-- the Python solution in `exercise10/python`,
-- the Exercise 10 lab PDF instructions and Keras notes used during preparation,
-- an executed Python run that generated the figures below.
-
+- 
 ## Data and Preprocessing
 Dataset: BCI IV2a subject 008 (provided `.mat` file in the Python utilities folder).
 
