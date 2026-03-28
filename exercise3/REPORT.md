@@ -1,32 +1,63 @@
-# Report: Exercise 3
+# Report: Exercise 3 - ICA Artifact Rejection (Eyes Open)
 
 ## Objective
-Clean eyes-open EEG through ICA-based artifact rejection and compare spectral profiles before and after correction.
+Process 19-channel eyes-open resting EEG and remove major artifacts using ICA, then compare EEG time-domain and spectral behavior before vs after correction.
 
-## Method Summary
-- Loaded 19-channel EEG recording (eyes open).
-- Computed time traces and channel PSDs.
-- Imported data into EEGLAB to estimate ICA demixing matrix.
-- Reconstructed independent components and inspected:
-  - temporal patterns,
-  - PSDs,
-  - scalp maps.
-- Removed selected artifact ICs and reconstructed cleaned EEG.
+## Dataset and Inputs
+- EEG file: `EYES_OPEN.mat`
+- Channels: 19
+- Sampling rate: 128 Hz
+- Channel locations: `Standard-10-20-Cap19.locs`
+- EEGLAB outputs used by script:
+  - demixing matrix: `matrixW_Exercise3.txt`
+  - IC scalp maps: `mapICs_Exercise3.fig`
 
-Primary removed components in the provided solution: IC1, IC2, IC19.
+## Procedure (Aligned with Exercise Points)
+1. Loaded EEG and plotted first 30 s of raw signals.
+2. Computed/visualized PSD of all EEG channels (`pwelch`).
+3. Prepared `.mat` data export for EEGLAB import.
+4. In EEGLAB: estimated ICA decomposition, exported demixing matrix, saved IC topomap figure.
+5. Reconstructed IC time courses from `W*X`.
+6. Computed/visualized PSD of all ICs.
+7. Identified artifactual ICs from time course + PSD + topography.
+8. Zeroed selected ICs, reconstructed cleaned EEG, and compared post-cleaning PSD to pre-cleaning PSD.
 
-## Results
-The generated figures show:
-- raw EEG and IC decomposition,
-- spectral structure of ICs,
-- cleaned EEG and PSD comparison.
+## Identified Artifact Components
+From the provided solution and IC inspection:
+- `IC1`: blinking-related activity
+- `IC2`: cardiac (ECG-like) activity
+- `IC19`: smaller lateral eye-movement contribution
 
-![Exercise 3 - EEG/IC Overview](figures/exercise3_fig_001.png)
-![Exercise 3 - PSD or Comparison View](figures/exercise3_fig_002.png)
-![Exercise 3 - Additional Output 1](figures/exercise3_fig_003.png)
-![Exercise 3 - Additional Output 2](figures/exercise3_fig_004.png)
-![Exercise 3 - Additional Output 3](figures/exercise3_fig_005.png)
+Removed set in reconstruction: `IC1, IC2, IC19`.
+
+## Results and Figures (All Exported Point-by-Point)
+### Point 1 - Raw EEG (before correction)
+![Point 1 - Raw EEG](figures/exercise3_p01_fig_001.png)
+
+### Point 2 - PSD of raw EEG channels
+![Point 2 - Raw EEG PSD](figures/exercise3_p02_fig_001.png)
+
+### Point 5 - Estimated ICs (time domain)
+![Point 5 - IC time courses](figures/exercise3_p05_fig_001.png)
+
+### Point 6 - PSD of estimated ICs
+![Point 6 - IC PSD](figures/exercise3_p06_fig_001.png)
+
+### Point 7 - Detailed IC inspection (time/PSD/topomap)
+![Point 7 - IC inspection 1](figures/exercise3_p07_fig_001.png)
+![Point 7 - IC inspection 2](figures/exercise3_p07_fig_002.png)
+![Point 7 - IC inspection 3](figures/exercise3_p07_fig_003.png)
+
+### Point 8 - Cleaned EEG and PSD comparison
+![Point 8 - Cleaned EEG (time)](figures/exercise3_p08_fig_001.png)
+![Point 8 - PSD after correction](figures/exercise3_p08_fig_002.png)
+![Point 8 - PSD before vs after](figures/exercise3_p08_fig_003.png)
+
+## Interpretation
+- ICA decomposition isolates non-neural components that are difficult to remove with standard filtering alone.
+- Removing selected artifactual ICs visibly attenuates large-amplitude contaminations in frontal/ocular-sensitive channels.
+- PSD comparison confirms spectral cleanup while preserving the main physiologic EEG content in the analysis band.
 
 ## Conclusion
-ICA separation supports effective artifact attenuation while preserving dominant physiological rhythms for later event-related or spectral analyses.
+Exercise 3 successfully applies ICA-based artifact correction on eyes-open EEG. The workflow from raw signal inspection to IC identification and selective IC rejection produces cleaner EEG in both time and frequency domains, preparing data for reliable downstream analyses.
 
