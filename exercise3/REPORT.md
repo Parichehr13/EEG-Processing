@@ -12,7 +12,7 @@ Process 19-channel eyes-open resting EEG and remove major artifacts using ICA, t
   - demixing matrix: `matrixW_Exercise3.txt`
   - IC scalp maps: `mapICs_Exercise3.fig`
 
-## Procedure (Aligned with Exercise Points)
+## Procedure
 1. Loaded EEG and plotted first 30 s of raw signals.
 2. Computed/visualized PSD of all EEG channels (`pwelch`).
 3. Prepared `.mat` data export for EEGLAB import.
