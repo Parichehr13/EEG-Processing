@@ -3,7 +3,7 @@
 ## Objective
 Study the difference between Principal Component Analysis (PCA) and Independent Component Analysis (ICA) for source separation, using synthetic signals with known ground truth.
 
-## Exercise Setup (from `Laboratory_Exercise2.pdf`)
+## Exercise Setup 
 - Duration: 10 s
 - Sampling frequency: 500 Hz
 - Independent sources:
