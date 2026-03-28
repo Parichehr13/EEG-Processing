@@ -12,7 +12,7 @@ Apply the same ICA-based cleaning workflow as Exercise 3 on eyes-closed EEG, the
   - demixing matrix: `matrixW_Exercise4.txt`
   - IC topomap file: `mapICs_Exercise4.fig`
 
-## Procedure (Aligned with Exercise Points)
+## Procedure
 1. Loaded eyes-closed EEG and plotted first 30 s.
 2. Computed/visualized channel PSDs (`pwelch`).
 3. Prepared data export for EEGLAB.
