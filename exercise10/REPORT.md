@@ -7,6 +7,11 @@ Train a convolutional neural network (EEGNet) to classify single-trial motor ima
 - feet,
 - tongue.
 
+This report is based on:
+- the Python solution in `exercise10/python`,
+- the Exercise 10 lab PDF instructions and Keras notes used during preparation,
+- an executed Python run that generated the figures below.
+
 ## Data and Preprocessing
 Dataset: BCI IV2a subject 008 (provided `.mat` file in the Python utilities folder).
 
@@ -33,14 +38,31 @@ Training setup used in the executed run:
 ### Class Distribution per Split
 ![Exercise 10 - Class histogram](figures/exercise10_py_fig_001.png)
 
+Figure explanation:
+- The split is reasonably balanced across the 4 classes in train, validation, and test sets.
+- This supports the use of overall accuracy and confusion matrices without strong class-imbalance bias.
+
 ### Training Curves (Loss and Accuracy)
 ![Exercise 10 - Training and validation curves](figures/exercise10_py_fig_002.png)
+
+Figure explanation:
+- Loss decreases steadily and validation loss follows the same trend, indicating stable optimization.
+- Accuracy rises on both sets with a limited train-validation gap, suggesting controlled overfitting.
 
 ### Confusion Matrices (Train/Validation/Test)
 ![Exercise 10 - Confusion matrices](figures/exercise10_py_fig_003.png)
 
+Figure explanation:
+- Training and validation confusion matrices are strongly diagonal, confirming good internal fit.
+- Test matrix remains mostly diagonal but shows harder separations for some classes (notably classes 3 and 4), which drives the expected drop from validation to test accuracy.
+- This behavior is consistent with session/domain shift effects in BCI IV2a.
+
 ### Spatial Filter Importance by Channel
 ![Exercise 10 - Spatial filter channel importance](figures/exercise10_py_fig_004.png)
+
+Figure explanation:
+- The barplot shows channel-wise contribution derived from absolute/averaged spatial-filter weights in EEGNet.
+- Higher-weight channels are concentrated in central/centro-parietal regions, which is coherent with motor-imagery physiology highlighted in the exercise PDF.
 
 ## Quantitative Results
 From the executed Python run:
@@ -51,4 +73,14 @@ From the executed Python run:
 Interpretation:
 - The model learns stable discriminative patterns (high train/validation scores).
 - Test performance remains solid but lower than train/validation, indicating expected domain/generalization difficulty on held-out session data.
-- Spatial-weight aggregation highlights channels with higher contribution to class discrimination, consistent with the motor-imagery task rationale.
+- Spatial-weight aggregation supports neurophysiological plausibility of the learned solution (motor-area relevance).
+
+## Reproducibility
+Execution script used for figure generation:
+- `exercise10/python/run_exercise10_export.py`
+
+Generated outputs:
+- `exercise10/figures/exercise10_py_fig_001.png`
+- `exercise10/figures/exercise10_py_fig_002.png`
+- `exercise10/figures/exercise10_py_fig_003.png`
+- `exercise10/figures/exercise10_py_fig_004.png`

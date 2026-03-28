@@ -31,3 +31,19 @@ Overall, these laboratory exercises provide practical training in modern EEG pro
 - topographical visualization
 - time-frequency methods
 - machine learning and convolutional neural networks
+
+## Exercise Order
+
+GitHub sorts folders alphabetically, so `exercise10` appears after `exercise1`.  
+Use this ordered list for navigation:
+
+1. `exercise1`
+2. `exercise2`
+3. `exercise3`
+4. `exercise4`
+5. `exercise5`
+6. `exercise6`
+7. `exercise7`
+8. `exercise8`
+9. `exercise9`
+10. `exercise10`
