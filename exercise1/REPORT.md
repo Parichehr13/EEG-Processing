@@ -10,7 +10,7 @@ Apply the first preprocessing steps to continuous EEG from a trial-based oddball
 - Stimuli: `standard`, `target`, `distractor`
 - Goal: produce cleaned, epoch-concatenated EEG and identify/remove bad channels for subsequent exercises.
 
-## Point-by-Point Method (Exercise 1)
+## Point-by-Point Method
 1. Loaded EEG data and converted `X` from single to double precision.
 2. Prepared optional resampling logic (`p=1`, `q=1` in this run, so no resampling applied).
 3. Linearly detrended all channels.
@@ -29,7 +29,7 @@ Apply the first preprocessing steps to continuous EEG from a trial-based oddball
 13. Removed bad channels from the concatenated data.
 14. Saved preprocessing output to `sub-035_PreprocessStep1.mat`.
 
-## Preprocessing Rationale (from Section 2 Notes)
+## Preprocessing Rationale
 - Preprocessing is a signal-to-noise trade-off: reducing artifact/noise while preserving task-relevant EEG content.
 - Resampling is kept configurable because acquisition at high sampling rate is flexible, but lower rates can reduce computational load when high frequencies are not needed.
 - Linear detrending removes slow baseline drift (electrode/skin interface effects) before spectral analysis.
