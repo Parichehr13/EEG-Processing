@@ -40,7 +40,7 @@ The main physiological marker discussed in the lab notes is **alpha-band (8-14 H
 ![Exercise 9a (sub-003) - TF maps at Fz/Cz/Pz](figures/exercise9a_sub003_p07_fig_001.png)
 ![Exercise 9a (sub-003) - Alpha topography over time](figures/exercise9a_sub003_p08_fig_001.png)
 
-Interpretation (aligned with comments PDF):
+Interpretation:
 - Alpha decrease (blue) appears mainly in the **target** condition, around late post-stimulus latency (about 400 ms onward).
 - Topography suggests central/parietal involvement during target processing.
 
@@ -48,7 +48,7 @@ Interpretation (aligned with comments PDF):
 ![Exercise 9a (sub-035) - TF maps at Fz/Cz/Pz](figures/exercise9a_sub035_p07_fig_001.png)
 ![Exercise 9a (sub-035) - Alpha topography over time](figures/exercise9a_sub035_p08_fig_001.png)
 
-Interpretation (aligned with comments PDF):
+Interpretation:
 - Alpha desynchronization is visible earlier (around 300 ms), strongest in target and slightly present in distractor.
 - Effects are clear at fronto-central and parietal regions in the alpha topomaps.
 
@@ -56,7 +56,7 @@ Interpretation (aligned with comments PDF):
 ![Exercise 9b - GA TF maps at Fz/Cz/Pz](figures/exercise9b_p02_fig_001.png)
 ![Exercise 9b - GA alpha topography over time](figures/exercise9b_p03_fig_001.png)
 
-Interpretation (aligned with comments PDF):
+Interpretation:
 - At group level, alpha decrease is most evident for **target** trials (around 400 ms onward), particularly at frontal/parietal electrodes.
 - Alpha topomaps show stronger posterior-parietal desynchronization in target compared with standard/distractor.
 
@@ -64,13 +64,3 @@ Interpretation (aligned with comments PDF):
 - The TF analysis complements ERP analysis by showing **when** and **at which frequencies** condition differences occur.
 - Target-related alpha desynchronization is consistent with increased attentional engagement in oddball paradigms.
 - Subject-level outputs show inter-subject variability (timing and spatial extent), while GA emphasizes stable population trends.
-
-## Reproducibility
-Figures were regenerated point-by-point with:
-- `tools/export_exercise9_by_point.m`
-
-Export settings:
-- PNG,
-- enlarged canvas,
-- 600 DPI.
-
