@@ -34,16 +34,15 @@ Overall, these laboratory exercises provide practical training in modern EEG pro
 
 ## Exercise Order
 
-GitHub sorts folders alphabetically, so `exercise10` appears after `exercise1`.  
-Use this ordered list for navigation:
+Folders are zero-padded so GitHub alphabetical order matches numeric order:
 
-1. `exercise1`
-2. `exercise2`
-3. `exercise3`
-4. `exercise4`
-5. `exercise5`
-6. `exercise6`
-7. `exercise7`
-8. `exercise8`
-9. `exercise9`
+1. `exercise01`
+2. `exercise02`
+3. `exercise03`
+4. `exercise04`
+5. `exercise05`
+6. `exercise06`
+7. `exercise07`
+8. `exercise08`
+9. `exercise09`
 10. `exercise10`
