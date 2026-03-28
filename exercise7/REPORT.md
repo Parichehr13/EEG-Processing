@@ -17,7 +17,7 @@ Two subject workflows are included:
 - Subject 035: `Exercise7_Subj035/Exercise7_Solution.m`
 - Subject 003: `Exercise1_7_Subj003/Exercise7_Solution_Subj003.m` (optional branch)
 
-## Workflow Summary (Point-Aligned)
+## Workflow Summary
 1. Load `PreprocessStep1` data.
 2. Save/export for EEGLAB ICA.
 3. In EEGLAB: estimate ICA and export demixing matrix (and IC maps).
