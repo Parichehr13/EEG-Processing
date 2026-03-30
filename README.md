@@ -1,10 +1,5 @@
 ﻿# EEG Processing Project
-
-This repository is organized as one end-to-end EEG research pipeline.
-Each stage contains code, figures, and a report.
-
-## About
-
+ 
 End-to-end EEG processing portfolio covering preprocessing, ICA-based artifact removal, ERP analysis, time-frequency analysis, and motor-imagery decoding.
 
 ## Project Pipeline
