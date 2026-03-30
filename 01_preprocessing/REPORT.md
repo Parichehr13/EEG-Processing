@@ -10,7 +10,7 @@ Apply the first preprocessing steps to continuous EEG from a trial-based oddball
 - Stimuli: `standard`, `target`, `distractor`
 - Goal: produce cleaned, epoch-concatenated EEG and identify/remove bad channels for subsequent stages.
 
-## Point-by-Point Method
+## Point-by-Step Method
 1. Loaded EEG data and converted `X` from single to double precision.
 2. Prepared optional resampling logic (`p=1`, `q=1` in this run, so no resampling applied).
 3. Linearly detrended all channels.
@@ -42,39 +42,39 @@ Apply the first preprocessing steps to continuous EEG from a trial-based oddball
 
 ## Results and Figures
 
-### Point 4 - Detrended EEG (time domain)
-![Point 4 - Detrended EEG](figures/stage01_p04_fig_001.png)
+### Step 4 - Detrended EEG (time domain)
+![Step 4 - Detrended EEG](figures/stage01_p04_fig_001.png)
 
-### Point 5 - PSD before filtering
-![Point 5 - PSD channels 1-30](figures/stage01_p05_fig_001.png)
-![Point 5 - PSD channels 31-59](figures/stage01_p05_fig_002.png)
-![Point 5 - PSD focus F3](figures/stage01_p05_fig_003.png)
-![Point 5 - PSD focus F1](figures/stage01_p05_fig_004.png)
-![Point 5 - PSD focus PO3](figures/stage01_p05_fig_005.png)
+### Step 5 - PSD before filtering
+![Step 5 - PSD channels 1-30](figures/stage01_p05_fig_001.png)
+![Step 5 - PSD channels 31-59](figures/stage01_p05_fig_002.png)
+![Step 5 - PSD focus F3](figures/stage01_p05_fig_003.png)
+![Step 5 - PSD focus F1](figures/stage01_p05_fig_004.png)
+![Step 5 - PSD focus PO3](figures/stage01_p05_fig_005.png)
 
-### Point 6 - IIR filter responses
-![Point 6 - Low-pass response](figures/stage01_p06_fig_001.png)
-![Point 6 - High-pass response](figures/stage01_p06_fig_002.png)
-![Point 6 - Notch response](figures/stage01_p06_fig_003.png)
+### Step 6 - IIR filter responses
+![Step 6 - Low-pass response](figures/stage01_p06_fig_001.png)
+![Step 6 - High-pass response](figures/stage01_p06_fig_002.png)
+![Step 6 - Notch response](figures/stage01_p06_fig_003.png)
 
-### Point 7 - Filtered EEG (time domain)
-![Point 7 - Filtered EEG](figures/stage01_p07_fig_001.png)
+### Step 7 - Filtered EEG (time domain)
+![Step 7 - Filtered EEG](figures/stage01_p07_fig_001.png)
 
-### Point 8 - PSD comparison (before vs after filtering)
-![Point 8 - PSD compare channels 1-30](figures/stage01_p08_fig_001.png)
-![Point 8 - PSD compare channels 31-59](figures/stage01_p08_fig_002.png)
-![Point 8 - PSD compare F3](figures/stage01_p08_fig_003.png)
-![Point 8 - PSD compare F1](figures/stage01_p08_fig_004.png)
-![Point 8 - PSD compare PO3](figures/stage01_p08_fig_005.png)
+### Step 8 - PSD comparison (before vs after filtering)
+![Step 8 - PSD compare channels 1-30](figures/stage01_p08_fig_001.png)
+![Step 8 - PSD compare channels 31-59](figures/stage01_p08_fig_002.png)
+![Step 8 - PSD compare F3](figures/stage01_p08_fig_003.png)
+![Step 8 - PSD compare F1](figures/stage01_p08_fig_004.png)
+![Step 8 - PSD compare PO3](figures/stage01_p08_fig_005.png)
 
-### Point 9 - Stimulus markers over filtered EEG
-![Point 9 - Filtered EEG with markers](figures/stage01_p09_fig_001.png)
+### Step 9 - Stimulus markers over filtered EEG
+![Step 9 - Filtered EEG with markers](figures/stage01_p09_fig_001.png)
 
-### Point 11 - Epoch-concatenated EEG
-![Point 11 - Epoch concatenation](figures/stage01_p11_fig_001.png)
+### Step 11 - Epoch-concatenated EEG
+![Step 11 - Epoch concatenation](figures/stage01_p11_fig_001.png)
 
-### Point 12 - Bad-channel identification
-![Point 12 - Bad channel highlighted](figures/stage01_p12_fig_001.png)
+### Step 12 - Bad-channel identification
+![Step 12 - Bad channel highlighted](figures/stage01_p12_fig_001.png)
 
 Observed bad channel in this run:
 - `index_bad = 11`
@@ -88,6 +88,7 @@ Observed bad channel in this run:
 
 ## Conclusion
 The required Stage 01 pipeline was completed end-to-end. The sequence of detrending, elliptic low/high-pass filtering, and 60 Hz notch filtering improved spectral quality while preserving physiologically meaningful structure. Epoching and concatenation were successfully completed, and one bad channel (`F1`) was identified and excluded before saving `sub-035_PreprocessStep1.mat` for downstream ICA/ERP/time-frequency analyses.
+
 
 
 

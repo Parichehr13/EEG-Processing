@@ -161,7 +161,7 @@ title(['PSD of unfiltered ' ch_names{53}])
 % hold on
 % plot(t(1:m-N/2), XFIR_lp(1,:),'r')  
  
-%% Stage 01 Point 6 - Filtering (low-pass, high-pass, notch) with IIR filters (elliptic) 
+%% Stage 01 Step 6 - Filtering (low-pass, high-pass, notch) with IIR filters (elliptic) 
 
 %I have separated low-pass and high-pass as it seems there is less risk of
 %instabilty of the filter
@@ -176,6 +176,8 @@ Rs = 40;
 figure
 freqz(b,a,srate*10,srate)
 title('Frequency response Low Pass Filter')
+set(findall(gcf,'Type','axes'),'FontSize',11,'FontWeight','normal');
+set(findall(gcf,'Type','text'),'FontSize',11,'FontWeight','normal');
 X_IIR_lp=filtfilt(b,a,X')'; %with filtfilt is a zero-phase filter;
 X=X_IIR_lp;
 
@@ -190,6 +192,8 @@ Rs = 40;
 figure
 freqz(b,a,srate*10,srate)
 title('Frequency response High Pass Filter')
+set(findall(gcf,'Type','axes'),'FontSize',11,'FontWeight','normal');
+set(findall(gcf,'Type','text'),'FontSize',11,'FontWeight','normal');
 X_IIR_hp=filtfilt(b,a,X')'; %with filtfilt is a zero-phase filter;
 X=X_IIR_hp;
 
@@ -200,10 +204,12 @@ Wo = 60/(srate/2);  BW = Wo/45;
 figure
 freqz(b,a,srate*10,srate)
 title('Frequency response Notch Filter')
+set(findall(gcf,'Type','axes'),'FontSize',11,'FontWeight','normal');
+set(findall(gcf,'Type','text'),'FontSize',11,'FontWeight','normal');
 X_IIR_sp=filtfilt(b,a,X')'; %with filtfilt is a zero-phase filter;
 X=X_IIR_sp;
 
-%% Stage 01 Point 7 - Plot the filtered signals over the entire duration
+%% Stage 01 Step 7 - Plot the filtered signals over the entire duration
 
 [n, m] = size(X); % n=number of channels=59; m=number of samples 
 
