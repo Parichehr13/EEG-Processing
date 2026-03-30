@@ -1,6 +1,6 @@
 ﻿# EEG Processing Project
 
-This repository is organized as one end-to-end EEG research pipeline rather than isolated modules.
+This repository is organized as one end-to-end EEG research pipeline.
 Each stage contains code, figures, and a report.
 
 ## Project Pipeline
