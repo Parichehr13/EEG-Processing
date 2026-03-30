@@ -41,7 +41,7 @@ Baseline removal shifts each epoch relative to its own pre-stimulus mean, reduci
 ![Stage 03a - WSA waveforms at Fz/Cz/Pz](figures/stage03a_p05_fig_001.png)
 ![Stage 03a - WSA topographical maps](figures/stage03a_p06_fig_001.png)
 
-### Interpretation (8a)
+### Interpretation
 - Waveforms show condition-dependent divergence after stimulus onset.
 - Late positive activity is stronger for target than standard, especially over centro-parietal sites (consistent with oddball-like processing).
 - Topomaps confirm that effects are not only temporal but also spatial, with stronger posterior/centro-parietal positivity in later windows.
