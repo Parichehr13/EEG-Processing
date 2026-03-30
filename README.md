@@ -2,7 +2,7 @@
  
 This repository covers EEG preprocessing, ICA artifact removal, ERP analysis, time-frequency analysis, and motor-imagery decoding
 
-## Project Pipeline
+## EEG Processing Pipeline
 
 1. `01_preprocessing`
    - Signal preparation: detrending, filtering, epoching, bad-channel detection.
