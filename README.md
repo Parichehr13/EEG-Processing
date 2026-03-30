@@ -36,7 +36,6 @@ Each stage contains code, figures, and a report.
 ## Professional Repository Standards
 
 - [CITATION.cff](CITATION.cff): citation metadata for academic reuse.
-- `.github/`: issue templates, PR template, and a lightweight quality workflow.
 
 ## Final Setup (Recommended)
 
