@@ -42,39 +42,39 @@ Apply the first preprocessing steps to continuous EEG from a trial-based oddball
 
 ## Results and Figures
 
-### Step 4 - Detrended EEG (time domain)
-![Step 4 - Detrended EEG](figures/stage01_p04_fig_001.png)
+### Detrended EEG (time domain)
+![Detrended EEG](figures/stage01_p04_fig_001.png)
 
-### Step 5 - PSD before filtering
-![Step 5 - PSD channels 1-30](figures/stage01_p05_fig_001.png)
-![Step 5 - PSD channels 31-59](figures/stage01_p05_fig_002.png)
-![Step 5 - PSD focus F3](figures/stage01_p05_fig_003.png)
-![Step 5 - PSD focus F1](figures/stage01_p05_fig_004.png)
-![Step 5 - PSD focus PO3](figures/stage01_p05_fig_005.png)
+### PSD before filtering
+![PSD channels 1-30](figures/stage01_p05_fig_001.png)
+![PSD channels 31-59](figures/stage01_p05_fig_002.png)
+![PSD focus F3](figures/stage01_p05_fig_003.png)
+![PSD focus F1](figures/stage01_p05_fig_004.png)
+![PSD focus PO3](figures/stage01_p05_fig_005.png)
 
-### Step 6 - IIR filter responses
-![Step 6 - Low-pass response](figures/stage01_p06_fig_001.png)
-![Step 6 - High-pass response](figures/stage01_p06_fig_002.png)
-![Step 6 - Notch response](figures/stage01_p06_fig_003.png)
+### IIR filter responses
+![Low-pass response](figures/stage01_p06_fig_001.png)
+![High-pass response](figures/stage01_p06_fig_002.png)
+![Notch response](figures/stage01_p06_fig_003.png)
 
-### Step 7 - Filtered EEG (time domain)
-![Step 7 - Filtered EEG](figures/stage01_p07_fig_001.png)
+### Filtered EEG (time domain)
+![Filtered EEG](figures/stage01_p07_fig_001.png)
 
-### Step 8 - PSD comparison (before vs after filtering)
-![Step 8 - PSD compare channels 1-30](figures/stage01_p08_fig_001.png)
-![Step 8 - PSD compare channels 31-59](figures/stage01_p08_fig_002.png)
-![Step 8 - PSD compare F3](figures/stage01_p08_fig_003.png)
-![Step 8 - PSD compare F1](figures/stage01_p08_fig_004.png)
-![Step 8 - PSD compare PO3](figures/stage01_p08_fig_005.png)
+### PSD comparison (before vs after filtering)
+![PSD compare channels 1-30](figures/stage01_p08_fig_001.png)
+![PSD compare channels 31-59](figures/stage01_p08_fig_002.png)
+![PSD compare F3](figures/stage01_p08_fig_003.png)
+![PSD compare F1](figures/stage01_p08_fig_004.png)
+![PSD compare PO3](figures/stage01_p08_fig_005.png)
 
-### Step 9 - Stimulus markers over filtered EEG
-![Step 9 - Filtered EEG with markers](figures/stage01_p09_fig_001.png)
+### Stimulus markers over filtered EEG
+![Filtered EEG with markers](figures/stage01_p09_fig_001.png)
 
-### Step 11 - Epoch-concatenated EEG
-![Step 11 - Epoch concatenation](figures/stage01_p11_fig_001.png)
+### Epoch-concatenated EEG
+![Epoch concatenation](figures/stage01_p11_fig_001.png)
 
-### Step 12 - Bad-channel identification
-![Step 12 - Bad channel highlighted](figures/stage01_p12_fig_001.png)
+### Bad-channel identification
+![Bad channel highlighted](figures/stage01_p12_fig_001.png)
 
 Observed bad channel in this run:
 - `index_bad = 11`
@@ -88,6 +88,7 @@ Observed bad channel in this run:
 
 ## Conclusion
 The required Stage 01 pipeline was completed end-to-end. The sequence of detrending, elliptic low/high-pass filtering, and 60 Hz notch filtering improved spectral quality while preserving physiologically meaningful structure. Epoching and concatenation were successfully completed, and one bad channel (`F1`) was identified and excluded before saving `sub-035_PreprocessStep1.mat` for downstream ICA/ERP/time-frequency analyses.
+
 
 
 

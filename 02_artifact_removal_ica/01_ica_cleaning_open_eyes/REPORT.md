@@ -31,27 +31,27 @@ From the provided solution and IC inspection:
 Removed set in reconstruction: `IC1, IC2, IC19`.
 
 ## Results and Figures
-### Step 1 - Raw EEG (before correction)
-![Step 1 - Raw EEG](figures/stage02a_p01_fig_001.png)
+### Raw EEG (before correction)
+![Raw EEG](figures/stage02a_p01_fig_001.png)
 
-### Step 2 - PSD of raw EEG channels
-![Step 2 - Raw EEG PSD](figures/stage02a_p02_fig_001.png)
+### PSD of raw EEG channels
+![Raw EEG PSD](figures/stage02a_p02_fig_001.png)
 
-### Step 5 - Estimated ICs (time domain)
-![Step 5 - IC time courses](figures/stage02a_p05_fig_001.png)
+### Estimated ICs (time domain)
+![IC time courses](figures/stage02a_p05_fig_001.png)
 
-### Step 6 - PSD of estimated ICs
-![Step 6 - IC PSD](figures/stage02a_p06_fig_001.png)
+### PSD of estimated ICs
+![IC PSD](figures/stage02a_p06_fig_001.png)
 
-### Step 7 - Detailed IC inspection (time/PSD/topomap)
-![Step 7 - IC inspection 1](figures/stage02a_p07_fig_001.png)
-![Step 7 - IC inspection 2](figures/stage02a_p07_fig_002.png)
-![Step 7 - IC inspection 3](figures/stage02a_p07_fig_003.png)
+### Detailed IC inspection (time/PSD/topomap)
+![IC inspection 1](figures/stage02a_p07_fig_001.png)
+![IC inspection 2](figures/stage02a_p07_fig_002.png)
+![IC inspection 3](figures/stage02a_p07_fig_003.png)
 
-### Step 8 - Cleaned EEG and PSD comparison
-![Step 8 - Cleaned EEG (time)](figures/stage02a_p08_fig_001.png)
-![Step 8 - PSD after correction](figures/stage02a_p08_fig_002.png)
-![Step 8 - PSD before vs after](figures/stage02a_p08_fig_003.png)
+### Cleaned EEG and PSD comparison
+![Cleaned EEG (time)](figures/stage02a_p08_fig_001.png)
+![PSD after correction](figures/stage02a_p08_fig_002.png)
+![PSD before vs after](figures/stage02a_p08_fig_003.png)
 
 ## Interpretation
 - ICA decomposition isolates non-neural components that are difficult to remove with standard filtering alone.
@@ -60,6 +60,7 @@ Removed set in reconstruction: `IC1, IC2, IC19`.
 
 ## Conclusion
 Stage 02A successfully applies ICA-based artifact correction on eyes-open EEG. The workflow from raw signal inspection to IC identification and selective IC rejection produces cleaner EEG in both time and frequency domains, preparing data for reliable downstream analyses.
+
 
 
 

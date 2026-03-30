@@ -32,33 +32,33 @@ Notes from script comments:
 - `IC12:IC19` include low-variance components with likely non-neural contamination (eye/muscle-related patterns).
 
 ## Results and Figures (All Exported Point-by-Point)
-### Step 1 - Raw eyes-closed EEG
-![Step 1 - Raw EEG](figures/stage02b_p01_fig_001.png)
+### Raw eyes-closed EEG
+![Raw EEG](figures/stage02b_p01_fig_001.png)
 
-### Step 2 - PSD before correction
-![Step 2 - Raw EEG PSD](figures/stage02b_p02_fig_001.png)
+### PSD before correction
+![Raw EEG PSD](figures/stage02b_p02_fig_001.png)
 
-### Step 5 - Estimated ICs (time domain)
-![Step 5 - IC time courses](figures/stage02b_p05_fig_001.png)
+### Estimated ICs (time domain)
+![IC time courses](figures/stage02b_p05_fig_001.png)
 
-### Step 6 - PSD of ICs
-![Step 6 - IC PSD](figures/stage02b_p06_fig_001.png)
+### PSD of ICs
+![IC PSD](figures/stage02b_p06_fig_001.png)
 
-### Step 7 - IC inspection panels (time/PSD/topomap)
-![Step 7 - IC inspection 1](figures/stage02b_p07_fig_001.png)
-![Step 7 - IC inspection 2](figures/stage02b_p07_fig_002.png)
-![Step 7 - IC inspection 3](figures/stage02b_p07_fig_003.png)
-![Step 7 - IC inspection 4](figures/stage02b_p07_fig_004.png)
-![Step 7 - IC inspection 5](figures/stage02b_p07_fig_005.png)
-![Step 7 - IC inspection 6](figures/stage02b_p07_fig_006.png)
-![Step 7 - IC inspection 7](figures/stage02b_p07_fig_007.png)
-![Step 7 - IC inspection 8](figures/stage02b_p07_fig_008.png)
-![Step 7 - IC inspection 9](figures/stage02b_p07_fig_009.png)
+### IC inspection panels (time/PSD/topomap)
+![IC inspection 1](figures/stage02b_p07_fig_001.png)
+![IC inspection 2](figures/stage02b_p07_fig_002.png)
+![IC inspection 3](figures/stage02b_p07_fig_003.png)
+![IC inspection 4](figures/stage02b_p07_fig_004.png)
+![IC inspection 5](figures/stage02b_p07_fig_005.png)
+![IC inspection 6](figures/stage02b_p07_fig_006.png)
+![IC inspection 7](figures/stage02b_p07_fig_007.png)
+![IC inspection 8](figures/stage02b_p07_fig_008.png)
+![IC inspection 9](figures/stage02b_p07_fig_009.png)
 
-### Step 8 - Cleaned EEG and spectral comparison
-![Step 8 - Cleaned EEG (time)](figures/stage02b_p08_fig_001.png)
-![Step 8 - PSD after correction](figures/stage02b_p08_fig_002.png)
-![Step 8 - PSD before vs after](figures/stage02b_p08_fig_003.png)
+### Cleaned EEG and spectral comparison
+![Cleaned EEG (time)](figures/stage02b_p08_fig_001.png)
+![PSD after correction](figures/stage02b_p08_fig_002.png)
+![PSD before vs after](figures/stage02b_p08_fig_003.png)
 
 ## Interpretation and Comparison with Stage 02A
 - In eyes-closed data, alpha-band activity (around ~10 Hz) is more pronounced than in eyes-open data, consistent with resting-state physiology.
@@ -68,6 +68,7 @@ Notes from script comments:
 
 ## Conclusion
 Stage 02B confirms that the ICA-based workflow remains effective in eyes-closed recordings and highlights condition-related spectral differences versus Stage 02A. The cleaned eyes-closed EEG preserves strong alpha activity while reducing artifact contamination, producing data suitable for subsequent analyses.
+
 
 
 
