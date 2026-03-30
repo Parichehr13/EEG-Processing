@@ -1,6 +1,6 @@
-%% SOLUTION OF EXERCISE 7 - This is the continuation of Exercise 1 - Suggestion: run one section at a time
+﻿%% SOLUTION OF PIPELINE COMPLETION STAGE - This is the continuation of Stage 01 preprocessing - Suggestion: run one section at a time
 
-%% Exercise 7 Point 1 - Load the .mat file obtained at the end of Exercise 1
+%% Pipeline Completion Stage Point 1 - Load the .mat file obtained at the end of Stage 01 preprocessing
 
 clear
 close all
@@ -8,20 +8,20 @@ clc
 
 load sub-035_PreprocessStep1.mat %Xepoched_conc containes 195 concatenated epochs; each epoch is made up of 500 samples
 
-%% Exercise 7 Point 2 - Save the data for their use in EEGLAB
+%% Pipeline Completion Stage Point 2 - Save the data for their use in EEGLAB
 
 %%comment the following instruction after the first usage
-%save dataExercise7_1.mat X
+%save sub035_pipeline_input_step1.mat X
 
-%% Exercise 7 Point 3  - Perform ICA and obtain the demixing matrix (using the GUI of EEGLAB)
-% Follow the instructions in the text of Exercise 7 (in eeglab, import dataExercise7.mat, compute and export the demixing
-% matrix (here saved in matrixW_Exercise7.txt), plot the topographical maps of the first 25 ICs (1:25) and save them in a .fig file (here
-% mapICs_Exercise7.fig)
+%% Pipeline Completion Stage Point 3  - Perform ICA and obtain the demixing matrix (using the GUI of EEGLAB)
+% Follow the instructions in the text of Pipeline Completion Stage (in eeglab, import sub035_pipeline_input_step1.mat, compute and export the demixing
+% matrix (here saved in matrixW_sub035_pipeline.txt), plot the topographical maps of the first 25 ICs (1:25) and save them in a .fig file (here
+% mapICs_sub035_pipeline.fig)
 
-%% Exercise 7 Point 4 - Load the demixing matrix, compute the ICs and plot them
+%% Pipeline Completion Stage Point 4 - Load the demixing matrix, compute the ICs and plot them
 
-load matrixW_Exercise7.txt 
-W=matrixW_Exercise7;       
+load matrixW_sub035_pipeline.txt 
+W=matrixW_sub035_pipeline;       
 
 A=inv(W); % mixing matrix A obtained by inverting the demixing matrix W (n_good x n_good = 58 x 58)
 Y=W*X;  % Y contains the estimated independent components (58 (n_good) x m_conc); 58 ICs
@@ -55,7 +55,7 @@ set(gca,'yticklabel',fliplr(labels_IC))
 set(gca,'fontsize',11)
 grid
 
-%% Exercise 7 Point 5 - Compute the power spectral density of the ICs
+%% Pipeline Completion Stage Point 5 - Compute the power spectral density of the ICs
 
 window=5*srate; 
 NFFT=2*window; 
@@ -70,10 +70,10 @@ NFFT=2*window;
 %     title(labels_IC{i})
 % end
 
-%% Exercise 7 Point 6  - Analysis of the ICs (the first 30 ICs) and identification of the artifact components
+%% Pipeline Completion Stage Point 6  - Analysis of the ICs (the first 30 ICs) and identification of the artifact components
 %%you can also open  the figure of the topographical maps created using
 %%EEGLAB (uncomment the following instruction)
-%openfig('mapICs_Exercise7.fig');
+%openfig('mapICs_sub035_pipeline.fig');
 
 %%I use the next istructions to better explore  ICs (IMPORTANT: since
 %%the function plot_IC uses the topoplot function of EEGLAB toolbox, you need
@@ -99,7 +99,7 @@ index_IC_toberemoved=[1,4,6,11,14:25,28,29];
 %IC28 and IC29 artifact on single electrodes
 % also IC26 and IC27 could be eliminated
 
-%% Exercise 7 Point 7  - Reconstruct good channels data cleaned from artifact ICs, and plot good channels before and after artifact removal
+%% Pipeline Completion Stage Point 7  - Reconstruct good channels data cleaned from artifact ICs, and plot good channels before and after artifact removal
 Snew=Y;
 Snew(index_IC_toberemoved,:)=0;
 
@@ -142,7 +142,7 @@ set(gca,'fontsize',11)
 grid
 title('epoched-concatenated EEG signals, good chans after ICA','fontsize',10)
 
-%% Exercise 7 Point 8 - Add back bad channel(s) (all zeros) to the cleaned good channels and save the obtained dataset
+%% Pipeline Completion Stage Point 8 - Add back bad channel(s) (all zeros) to the cleaned good channels and save the obtained dataset
 
 n=length(index_good)+length(index_bad); % total number of acquired channels;
 Xaux=zeros(n,m_conc); %n = 59; initialization of the variable
@@ -173,19 +173,19 @@ title('epoched-concatenated EEG signals, cleaned good chans + all zeros bad chan
 %%comment the save instruction after the first usage (this .mat file must
 %%be imported in EEGLAB for spherical spline interpolation (SSI) of the
 %%bad channel/s). 
-%save dataExercise7_2 X
+%save sub035_pipeline_for_interpolation.mat X
 
-%% Exercise 7 Point 9 - Bad channel interpolation in EEGLAB
-%%Follow the instructions reported in Exercise 7: In eeglab import dataExercise7_2.mat, the locs
+%% Pipeline Completion Stage Point 9 - Bad channel interpolation in EEGLAB
+%%Follow the instructions reported in Pipeline Completion Stage: In eeglab import sub035_pipeline_for_interpolation.mat, the locs
 %%file 'Standard-10-20-Cap59.locs' and indicate the sampling rate. Then,
 %%select Tools-->Interpolate electrodes-->Select from data channels--> F1
 %%and press ok. Then, in the command window, run the instruction
 %%>> Xinterpolated=EEG.data and  
-%%>> save dataExercise7_3.mat Xinterpolated
+%%>> save sub035_interpolated_data.mat Xinterpolated
 
-%% Exercise 7 Point 10 -  Re-referencing to Average Reference adding back the online reference electrode (CPz)
+%% Pipeline Completion Stage Point 10 -  Re-referencing to Average Reference adding back the online reference electrode (CPz)
 
-load dataExercise7_3.mat % This mat file has been created at point 9 
+load sub035_interpolated_data.mat % This mat file has been created at point 9 
 
 X=Xinterpolated; % n = 59 x m_conc = 97500 (at row 11 = F1 we now have the interpolated bad channel)
 
@@ -194,7 +194,7 @@ X=Xinterpolated; % n = 59 x m_conc = 97500 (at row 11 = F1 we now have the inter
 delta=100;
 
 % First, I check that the bad channel has been replaced (compare with figure in
-% Section 'Exercise 7 - Point 8')
+% Section 'Pipeline Completion Stage - Point 8')
 figure  
 for i = 1:n
     plot(t(start:stop),X(i,start:stop)-delta*(i-1),'color',[0 0 0],'linewidth',1);
@@ -239,16 +239,17 @@ set(gca,'fontsize',11)
 grid
 title('epoched-concatenated EEG signals, cleaned good chans + interpolated bad chans, AR','fontsize',10)
 
-%% Exercise 7 Point 11 -  Convert the data from 2D to 3D and save
+%% Pipeline Completion Stage Point 11 -  Convert the data from 2D to 3D and save
 
 [n,m_conc]=size(X); % n = 60; m_conc = 97500
 
 q=length(stim_types); % q = overall number of epochs
 
 m_ep=m_conc/q; % number of samples per epoch; 
-%we already know m_ep = 500 samples, since in Exercise 1 we extracted 1 second per epoch, and srate = 500
+%we already know m_ep = 500 samples, since in Stage 01 preprocessing we extracted 1 second per epoch, and srate = 500
 
 X=reshape(X,n,m_ep,q);
 
 save sub-035_PreprocessStep2.mat X ch_names srate stim_types
+
 

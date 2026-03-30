@@ -1,7 +1,7 @@
-%% SOLUTION OF EXERCISE 5 - Suggestion: run one section at a time
-%%same steps as EXERCISES 3 and 4 
+﻿%% 13-CHANNEL ICA STAGE - Suggestion: run one section at a time
+%%same steps as the open-eyes and closed-eyes ICA stages
 
-%% Exercise 5 Point 1 - Load the file and plot the 13 EEG signals in time (before artifact correction)
+%% 13-Channel ICA Stage Point 1 - Load the file and plot the 13 EEG signals in time (before artifact correction)
 
 clear
 close all
@@ -34,7 +34,7 @@ set(gca,'ytickLabel',fliplr(ch_names))
 set(gca,'fontsize',11)
 grid
 
-%% Exercise 5 Point 2 - Compute and plot the power spectral density of the 19 EEG signals (before artifact correction)
+%% 13-Channel ICA Stage Point 2 - Compute and plot the power spectral density of the 19 EEG signals (before artifact correction)
 
 window=srate*5;  %I use sections of 5 seconds (number of points per section = 5*srate=5*128)
 NFFT=2*window; %number of points used for estimation of PSD = 10*srate-->zero-padding to increase
@@ -54,20 +54,20 @@ for i = 1:n
 end
 sgtitle('PSD of EEG signals (before artifact correction)')
 
-%% Exercise 5 Point 3 - Save the EEG data X for their use in EEGLAB
+%% 13-Channel ICA Stage Point 3 - Save the EEG data X for their use in EEGLAB
 
 %%comment the following instruction after the first usage
-%save dataExercise5.mat X
+%save ica_13ch_input.mat X
 
-%% Exercise 5 Point 4  - Perform ICA and obtain the demixing matrix (using the GUI of EEGLAB)
-% Follow the instructions in the text of Exercise 5 (same as in Exercise 3: in eeglab, import dataExercise5.mat, compute and export the demixing
-% matrix (here saved in matrixW_Exercise5.txt), plot the topographical maps and save them in a .fig file (here
-% mapICs_Exercise5.fig)
+%% 13-Channel ICA Stage Point 4  - Perform ICA and obtain the demixing matrix (using the GUI of EEGLAB)
+% Follow the instructions in the text of 13-Channel ICA Stage (same as in Open-Eyes ICA Stage: in eeglab, import ica_13ch_input.mat, compute and export the demixing
+% matrix (here saved in matrixW_13ch.txt), plot the topographical maps and save them in a .fig file (here
+% mapICs_13ch.fig)
 
-%% Exercise 5 Point 5 - Load the demixing matrix, compute and plot the ICs as a function of time
+%% 13-Channel ICA Stage Point 5 - Load the demixing matrix, compute and plot the ICs as a function of time
 
-load matrixW_Exercise5.txt 
-W=matrixW_Exercise5;
+load matrixW_13ch.txt 
+W=matrixW_13ch;
 A=inv(W); % mixing matrix A obtained by inverting the demixing matrix W
 Y=W*X;  % Y contains the estimated independent components (n x m)
 
@@ -96,7 +96,7 @@ set(gca,'yticklabel',fliplr(labels_IC))
 set(gca,'fontsize',11)
 grid
 
-%% Exercise 5 Point 6 - Compute and plot the power spectral density of the estimated ICs
+%% 13-Channel ICA Stage Point 6 - Compute and plot the power spectral density of the estimated ICs
 
 %same parameter setting as for EEG signals (X)
 window=5*srate; 
@@ -115,10 +115,10 @@ for i = 1:n
 end
 sgtitle('PSD of estimated independent components')
 
-%% Exercise 5 Point 7 - Identification of artifact components via exploration of time pattern, PSD, topographical map
+%% 13-Channel ICA Stage Point 7 - Identification of artifact components via exploration of time pattern, PSD, topographical map
 %%you can also open  the figure of the topographical maps created using
 %%EEGLAB (uncomment the following instruction)
-%openfig('mapICs_Exercise5.fig');
+%openfig('mapICs_13ch.fig');
 
 %%I use the next istruction to better explore some ICs (IMPORTANT: since
 %%this function uses the topoplot function of EEGLAB toolbox, you need
@@ -133,7 +133,7 @@ plot_IC(index_IC,A,Y,PSD_IC,f,'Standard-10-20-Cap13.locs',srate,t(1),t(end))
 % also IC8 seems to contain same spurious activity and could be eliminated
 % (I  eliminate IC8 too, in the following)
     
-%% Exercise 5 Point 8 - Removal of the main artifact components, reconstruction of cleaned EEG, time pattern and PSD of the cleaned EEG
+%% 13-Channel ICA Stage Point 8 - Removal of the main artifact components, reconstruction of cleaned EEG, time pattern and PSD of the cleaned EEG
 
 Snew=Y;
 Snew([1,3,6,7,8],:)=0; % I cancel the ICs identified as artifact components
@@ -192,6 +192,8 @@ for i = 1:n
     ylabel('{\muV}^2/Hz')
 end
 sgtitle('PSD of EEG signals (before vs after artifact correction)')
+
+
 
 
 

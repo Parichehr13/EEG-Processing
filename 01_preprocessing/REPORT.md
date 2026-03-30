@@ -1,4 +1,4 @@
-# Report: Exercise 1 - EEG Preprocessing (Subject 035)
+﻿# Report: Stage 01 - EEG Preprocessing (Subject 035)
 
 ## Objective
 Apply the first preprocessing steps to continuous EEG from a trial-based oddball experiment.
@@ -8,7 +8,7 @@ Apply the first preprocessing steps to continuous EEG from a trial-based oddball
 - Channels: 59 EEG electrodes (reference: CPz in acquisition)
 - Sampling rate: 500 Hz
 - Stimuli: `standard`, `target`, `distractor`
-- Goal: produce cleaned, epoch-concatenated EEG and identify/remove bad channels for subsequent exercises.
+- Goal: produce cleaned, epoch-concatenated EEG and identify/remove bad channels for subsequent stages.
 
 ## Point-by-Point Method
 1. Loaded EEG data and converted `X` from single to double precision.
@@ -43,38 +43,38 @@ Apply the first preprocessing steps to continuous EEG from a trial-based oddball
 ## Results and Figures
 
 ### Point 4 - Detrended EEG (time domain)
-![Point 4 - Detrended EEG](figures/exercise1_p04_fig_001.png)
+![Point 4 - Detrended EEG](figures/stage01_p04_fig_001.png)
 
 ### Point 5 - PSD before filtering
-![Point 5 - PSD channels 1-30](figures/exercise1_p05_fig_001.png)
-![Point 5 - PSD channels 31-59](figures/exercise1_p05_fig_002.png)
-![Point 5 - PSD focus F3](figures/exercise1_p05_fig_003.png)
-![Point 5 - PSD focus F1](figures/exercise1_p05_fig_004.png)
-![Point 5 - PSD focus PO3](figures/exercise1_p05_fig_005.png)
+![Point 5 - PSD channels 1-30](figures/stage01_p05_fig_001.png)
+![Point 5 - PSD channels 31-59](figures/stage01_p05_fig_002.png)
+![Point 5 - PSD focus F3](figures/stage01_p05_fig_003.png)
+![Point 5 - PSD focus F1](figures/stage01_p05_fig_004.png)
+![Point 5 - PSD focus PO3](figures/stage01_p05_fig_005.png)
 
 ### Point 6 - IIR filter responses
-![Point 6 - Low-pass response](figures/exercise1_p06_fig_001.png)
-![Point 6 - High-pass response](figures/exercise1_p06_fig_002.png)
-![Point 6 - Notch response](figures/exercise1_p06_fig_003.png)
+![Point 6 - Low-pass response](figures/stage01_p06_fig_001.png)
+![Point 6 - High-pass response](figures/stage01_p06_fig_002.png)
+![Point 6 - Notch response](figures/stage01_p06_fig_003.png)
 
 ### Point 7 - Filtered EEG (time domain)
-![Point 7 - Filtered EEG](figures/exercise1_p07_fig_001.png)
+![Point 7 - Filtered EEG](figures/stage01_p07_fig_001.png)
 
 ### Point 8 - PSD comparison (before vs after filtering)
-![Point 8 - PSD compare channels 1-30](figures/exercise1_p08_fig_001.png)
-![Point 8 - PSD compare channels 31-59](figures/exercise1_p08_fig_002.png)
-![Point 8 - PSD compare F3](figures/exercise1_p08_fig_003.png)
-![Point 8 - PSD compare F1](figures/exercise1_p08_fig_004.png)
-![Point 8 - PSD compare PO3](figures/exercise1_p08_fig_005.png)
+![Point 8 - PSD compare channels 1-30](figures/stage01_p08_fig_001.png)
+![Point 8 - PSD compare channels 31-59](figures/stage01_p08_fig_002.png)
+![Point 8 - PSD compare F3](figures/stage01_p08_fig_003.png)
+![Point 8 - PSD compare F1](figures/stage01_p08_fig_004.png)
+![Point 8 - PSD compare PO3](figures/stage01_p08_fig_005.png)
 
 ### Point 9 - Stimulus markers over filtered EEG
-![Point 9 - Filtered EEG with markers](figures/exercise1_p09_fig_001.png)
+![Point 9 - Filtered EEG with markers](figures/stage01_p09_fig_001.png)
 
 ### Point 11 - Epoch-concatenated EEG
-![Point 11 - Epoch concatenation](figures/exercise1_p11_fig_001.png)
+![Point 11 - Epoch concatenation](figures/stage01_p11_fig_001.png)
 
 ### Point 12 - Bad-channel identification
-![Point 12 - Bad channel highlighted](figures/exercise1_p12_fig_001.png)
+![Point 12 - Bad channel highlighted](figures/stage01_p12_fig_001.png)
 
 Observed bad channel in this run:
 - `index_bad = 11`
@@ -87,5 +87,7 @@ Observed bad channel in this run:
 - Correlation-based screening identified one outlier channel (`F1`), consistent with the objective of removing channels with atypical behavior before downstream ICA/ERP analyses.
 
 ## Conclusion
-The required Exercise 1 pipeline was completed end-to-end. The sequence of detrending, elliptic low/high-pass filtering, and 60 Hz notch filtering improved spectral quality while preserving physiologically meaningful structure. Epoching and concatenation were successfully completed, and one bad channel (`F1`) was identified and excluded before saving `sub-035_PreprocessStep1.mat` for downstream ICA/ERP/time-frequency analyses.
+The required Stage 01 pipeline was completed end-to-end. The sequence of detrending, elliptic low/high-pass filtering, and 60 Hz notch filtering improved spectral quality while preserving physiologically meaningful structure. Epoching and concatenation were successfully completed, and one bad channel (`F1`) was identified and excluded before saving `sub-035_PreprocessStep1.mat` for downstream ICA/ERP/time-frequency analyses.
+
+
 

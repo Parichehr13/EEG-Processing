@@ -1,5 +1,5 @@
-#!/usr/bin/env python
-"""Run Exercise 10 (Python) and export report-ready figures."""
+﻿#!/usr/bin/env python
+"""Run Stage 05 decoding (Python) and export report-ready figures."""
 
 from __future__ import annotations
 
@@ -15,7 +15,7 @@ import numpy as np
 from sklearn.metrics import ConfusionMatrixDisplay, confusion_matrix
 from tensorflow import keras
 
-from exercise10_utils.utils import EEGNet, load_bci_iv2a
+from decoding_utils.utils import EEGNet, load_bci_iv2a
 
 
 def to_one_hot(y_dense: np.ndarray, n_classes: int) -> np.ndarray:
@@ -43,8 +43,8 @@ def main() -> None:
     fig_dir = root_ex / "figures"
     fig_dir.mkdir(parents=True, exist_ok=True)
 
-    # Clean previous exported Exercise 10 PNGs
-    for old in fig_dir.glob("exercise10_py_fig_*.png"):
+    # Clean previous exported Stage 05 PNGs
+    for old in fig_dir.glob("stage05_decoding_fig_*.png"):
         old.unlink(missing_ok=True)
 
     n_chans = 22
@@ -52,7 +52,7 @@ def main() -> None:
     n_classes = 4
 
     (x_train, labels_train), (x_test, labels_test), srate, ch_names, conditions = load_bci_iv2a(
-        str(here / "exercise10_utils" / "bci_iv2a_sub-008.mat")
+        str(here / "decoding_utils" / "bci_iv2a_sub-008.mat")
     )
 
     n_examples_train = x_train.shape[0]
@@ -94,7 +94,7 @@ def main() -> None:
         ax.set_ylabel("no. of examples")
         ax.set_xlabel("class")
 
-    out1 = fig_dir / "exercise10_py_fig_001.png"
+    out1 = fig_dir / "stage05_decoding_fig_001.png"
     save_figure(fig, out1)
     saved.append(out1.name)
 
@@ -141,7 +141,7 @@ def main() -> None:
     ax2.set_xlabel("epochs")
     ax2.legend()
 
-    out2 = fig_dir / "exercise10_py_fig_002.png"
+    out2 = fig_dir / "stage05_decoding_fig_002.png"
     save_figure(fig, out2)
     saved.append(out2.name)
 
@@ -173,7 +173,7 @@ def main() -> None:
         ax.set_title(f"{name} set")
         ax.set_xlabel("Predicted")
         ax.set_ylabel("True")
-    out3 = fig_dir / "exercise10_py_fig_003.png"
+    out3 = fig_dir / "stage05_decoding_fig_003.png"
     save_figure(fig, out3)
     saved.append(out3.name)
 
@@ -192,14 +192,15 @@ def main() -> None:
     ax.set_ylabel("average absolute weight")
     ax.set_xlabel("EEG channel")
     ax.set_xticks(ticks=x, labels=ch_names, rotation=45, ha="right")
-    out4 = fig_dir / "exercise10_py_fig_004.png"
+    out4 = fig_dir / "stage05_decoding_fig_004.png"
     save_figure(fig, out4)
     saved.append(out4.name)
 
-    manifest_path = fig_dir / "exercise10_manifest.json"
+    manifest_path = fig_dir / "stage05_decoding_manifest.json"
     manifest_path.write_text(json.dumps(saved), encoding="utf-8")
     print("Saved figures:", saved)
 
 
 if __name__ == "__main__":
     main()
+

@@ -1,0 +1,131 @@
+COMMENTS TO FIGURES  
+
+
+EXERCISE 9a - Subject 035 
+
+
+7 )Wavelet time-frequency representation of three channels in each condition. A decrease 
+(desynchronization) in alpha band (8-14 Hz) is evident from about 300 ms (blue color) in the target condition 
+slightly more than in the distractor condition, especially at Fz and Cz. Alpha band decrease indicates attention 
+allocation.  
+
+
+ 
+
+8 T)opological maps of alpha band power. Alpha decrease (blue color) is evident at parietal and fronto-central 
+regions slightly more in the target than in the distractor condition 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+EXERCISE 9a - Subject 003 
+
+
+7 )Wavelet time-frequency representation of three channels in each condition. A decrease 
+(desynchronization) in alpha band (8-14 Hz) is evident from about 400 ms (blue color) only in the target 
+condition.  
+
+
+ 
+
+8 T)opological maps of alpha band. Alpha decrease (light blue color) is recognizable in some central/parietal 
+regions in case of the target condition.   
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+EXERCISE 9b  
+
+
+2 W)avelet time-frequency representation of three channels in each condition, across all subjects. A decrease 
+(desynchronization) in alpha band (8-14 Hz) is evident from about 400 ms (blue color) only in the target 
+condition, at frontal and parietal electrodes.  
+
+
+  
+
+3 T)opological maps of alpha band. Alpha decrease (light blue color) is recognizable especially in parietal-
+posterior regions only in the target condition 
+
+
+ 

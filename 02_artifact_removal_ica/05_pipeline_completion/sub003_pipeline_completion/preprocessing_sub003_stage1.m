@@ -1,6 +1,6 @@
-%% SOLUTION OF EXERCISE 1 - Suggestion: run one section at a time
+﻿%% STAGE 01 PIPELINE - Suggestion: run one section at a time
 
-%% Exercise 1 Point 1 - Load the data; transform from single to double precision
+%% Stage 01 Point 1 - Load the data; transform from single to double precision
 
 clear
 close all
@@ -12,7 +12,7 @@ X=double(X); %double precision
 
 [n_or,m_or]=size(X); % n_or= original number of channels=59; m_or=original number of samples before resampling
 
-%% Exercise 1 Point 2 - Possible Resampling (here, resampling is not applied)
+%% Stage 01 Point 2 - Possible Resampling (here, resampling is not applied)
 
 p=1;
 q=1; %resample at P/Q time the original sampling rate
@@ -29,12 +29,12 @@ X=Xresampled; %at each step, X is overwritten
 stim_samples_or=stim_samples; %original time samples of the stimuli
 stim_samples=floor(stim_samples_or*p/q); %time samples of the stimuli recomputed considering the new Fs
 
-%% Exercise 1 Point 3 - Linear Detrending
+%% Stage 01 Point 3 - Linear Detrending
 
 Xdetrended=detrend(X')'; 
 X=Xdetrended;
 
-%% Exercise 1 Point 4 - Plot the signals over the entire duration 
+%% Stage 01 Point 4 - Plot the signals over the entire duration 
 
 [n, m]=size(X); % n=number of channels=59; m=number of samples after resampling; here m = m_or
 
@@ -62,7 +62,14 @@ set(gca,'ytickLabel',fliplr(ch_names))
 set(gca,'fontsize',11)
 grid
 
-%% Exercise 1 Point 5 - Compute the power spectrum density of all signals and plot the PSD of electrodes n.10,11,53
+%% Stage 01 Point 5 - Compute the power spectrum density of all signals and plot the PSD of electrodes n.10,11,53
+
+if ~exist('X','var') || ~exist('srate','var')
+    warning('X/srate not found in workspace. Loading raw data for Point 5...');
+    load('sub-003_ses-01_task-Rest_eeg.mat'); % provides X, srate, ch_names, stim info
+    X=double(X);
+end
+[~,m]=size(X);
 
 window=srate*10; % window of 10 seconds (usually I use window of 5 sec and then zero padding to 10 sec)
 NFFT=window;  % not use zero padding here as it introduces artifacts in the power spectra
@@ -140,7 +147,7 @@ xlabel('Hz')
 ylabel('{\muV}^2/Hz')
 title(['PSD of unfiltered ' ch_names{58}])
 
-%% Exercise 1 Point 6 - Filtering with FIR filter (Kaiser window) COMMENTED 
+%% Stage 01 Point 6 - Filtering with FIR filter (Kaiser window) COMMENTED 
 % %I have commented this part but left here as an example of FIR filter application
 
 % %LOW-PASS FIR FILTER
@@ -172,7 +179,7 @@ title(['PSD of unfiltered ' ch_names{58}])
 % hold on
 % plot(t(1:m-N/2), XFIR_lp(1,:),'r')  
  
-%% Exercise 1 Point 6 - Filtering (low-pass, high-pass, notch) with IIR filters (elliptic) 
+%% Stage 01 Point 6 - Filtering (low-pass, high-pass, notch) with IIR filters (elliptic) 
 
 %I have separated low-pass and high-pass as it seems there is less risk of
 %instabilty of the filter
@@ -214,7 +221,7 @@ title('Frequency response Notch Filter')
 X_IIR_sp=filtfilt(b,a,X')'; %with filtfilt is a zero-phase filter;
 X=X_IIR_sp;
 
-%% Exercise 1 Point 7 - Plot the filtered signals over the entire duration
+%% Stage 01 Point 7 - Plot the filtered signals over the entire duration
 
 [n, m] = size(X); % n=number of channels=59; m=number of samples after resampling
 
@@ -242,7 +249,7 @@ set(gca,'fontsize',11)
 grid
 title('Filtered EEG signals')
 
-%% Exercise 1 Point 8 - Compute the power spectrum density of all filtered signals and compare the PSD before vs after filtering (electr. 10,11,53)
+%% Stage 01 Point 8 - Compute the power spectrum density of all filtered signals and compare the PSD before vs after filtering (electr. 10,11,53)
 
 window=srate*10; 
 NFFT=window;  
@@ -334,7 +341,7 @@ ylabel('{\muV}^2/Hz')
 title(['PSD of unfiltered & filtered ' ch_names{53}])
 legend('unfiltered','filtered')
 
-%% Exercise 1 Point 9 - Plot the markers of the events over the n filtered signals 
+%% Stage 01 Point 9 - Plot the markers of the events over the n filtered signals 
 
 %close all previous figures
 close all
@@ -380,7 +387,7 @@ end
 % %We can limit x-axis (uncomment followin instruction)
 %xlim([300 650])
         
-%% Exercise 1 Point 10 - Extract epochs [-0.2 0.8]s around each stimulus presentation--> 3-D matrix
+%% Stage 01 Point 10 - Extract epochs [-0.2 0.8]s around each stimulus presentation--> 3-D matrix
 
 epoch_lim=[-0.2 0.8]; %in seconds
 % n = 59 is the number of channels in the epochs 
@@ -396,7 +403,7 @@ end
 
 X=Xepoched; % 3D matrix with size n x m_ep x r
 
-%% Exercise 1 Point 11 - Concatenation of extracted epochs 3-D matrix --> 2-D matrix
+%% Stage 01 Point 11 - Concatenation of extracted epochs 3-D matrix --> 2-D matrix
 
 [n,m_ep,r]=size(X);
 Xconcat=reshape(X,n,m_ep*r);
@@ -427,7 +434,7 @@ set(gca,'fontsize',11)
 grid
 title('epoched EEG signals (concatenated)')
 
-%% Exercise 1 Point 12 - Identification and plot of bad channels 
+%% Stage 01 Point 12 - Identification and plot of bad channels 
 
 [n,m_conc]=size(X); %can be commented
 
@@ -489,14 +496,15 @@ set(gca,'ytickLabel',fliplr(ch_names))
 set(gca,'fontsize',11)
 grid
 
-%% Exercise 1 Point 13 - Removal of bad channels
+%% Stage 01 Point 13 - Removal of bad channels
 
 Xgood=X(index_good,:);
 X=Xgood; % n_good x m_conc where n_good = total number of recorded channels (=59) minus the number of identified bad channels. Here only
 % one channel is identified as bad, thus n_good = 58
 
-%% Exercise 1 Point 14 - Saving at the end of these pre-processing steps
+%% Stage 01 Point 14 - Saving at the end of these pre-processing steps
 
 save sub-003_PreprocessStep1 X ch_names srate stim_types index_bad index_good
+
 
 

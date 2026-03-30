@@ -1,21 +1,21 @@
-# Report: Exercise 7 - Completion of Preprocessing Pipeline (Sub-035 and Sub-003)
+﻿# Report: Stage 02E - Completion of Preprocessing Pipeline (Sub-035 and Sub-003)
 
 ## Objective
-Complete the preprocessing chain started in Exercise 1 by:
+Complete the preprocessing chain started in Stage 01 by:
 - ICA cleaning on good channels,
 - bad-channel handling/interpolation (when present),
 - average re-referencing with recovery of CPz,
 - conversion from 2D epoch-concatenated data back to 3D epoched format.
 
 ## Input Context
-Exercise 7 starts from Exercise 1 outputs (`*_PreprocessStep1.mat`) where data are already:
+Stage 02E starts from Stage 01 outputs (`*_PreprocessStep1.mat`) where data are already:
 - detrended and filtered,
 - epoched then concatenated,
 - screened for bad channels.
 
 Two subject workflows are included:
-- Subject 035: `Exercise7_Subj035/Exercise7.m`
-- Subject 003: `Exercise1_7_Subj003/Exercise7_Subj003.m` (optional branch)
+- Subject 035: `sub035_pipeline_completion/pipeline_completion_sub035.m`
+- Subject 003: `sub003_pipeline_completion/pipeline_completion_sub003.m` (optional branch)
 
 ## Workflow Summary
 1. Load `PreprocessStep1` data.
@@ -43,19 +43,21 @@ Two subject workflows are included:
 
 ## Results and Figures
 ### Subject 035 (6 figures)
-![Sub-035 - IC overview](figures/exercise7_sub035_fig_001.png)
-![Sub-035 - Good channels before ICA cleaning](figures/exercise7_sub035_fig_002.png)
-![Sub-035 - Good channels after ICA cleaning](figures/exercise7_sub035_fig_003.png)
-![Sub-035 - Cleaned good + zero bad channel added back](figures/exercise7_sub035_fig_004.png)
-![Sub-035 - After bad-channel interpolation](figures/exercise7_sub035_fig_005.png)
-![Sub-035 - Final average-referenced data with CPz](figures/exercise7_sub035_fig_006.png)
+![Sub-035 - IC overview](figures/stage02e_sub035_fig_001.png)
+![Sub-035 - Good channels before ICA cleaning](figures/stage02e_sub035_fig_002.png)
+![Sub-035 - Good channels after ICA cleaning](figures/stage02e_sub035_fig_003.png)
+![Sub-035 - Cleaned good + zero bad channel added back](figures/stage02e_sub035_fig_004.png)
+![Sub-035 - After bad-channel interpolation](figures/stage02e_sub035_fig_005.png)
+![Sub-035 - Final average-referenced data with CPz](figures/stage02e_sub035_fig_006.png)
 
 ### Subject 003 (4 figures)
-![Sub-003 - IC overview](figures/exercise7_sub003_fig_001.png)
-![Sub-003 - Good channels before ICA cleaning](figures/exercise7_sub003_fig_002.png)
-![Sub-003 - Good channels after ICA cleaning](figures/exercise7_sub003_fig_003.png)
-![Sub-003 - Final average-referenced data with CPz](figures/exercise7_sub003_fig_004.png)
+![Sub-003 - IC overview](figures/stage02e_sub003_fig_001.png)
+![Sub-003 - Good channels before ICA cleaning](figures/stage02e_sub003_fig_002.png)
+![Sub-003 - Good channels after ICA cleaning](figures/stage02e_sub003_fig_003.png)
+![Sub-003 - Final average-referenced data with CPz](figures/stage02e_sub003_fig_004.png)
 
 ## Conclusion
-Exercise 7 completes the preprocessing pipeline for both subjects. The outputs are artifact-reduced, re-referenced, and reshaped into 3D epoched tensors ready for downstream ERP/time-frequency analysis. Subject-specific differences (presence/absence of bad channels) were handled correctly through the branching workflow.
+Stage 02E completes the preprocessing pipeline for both subjects. The outputs are artifact-reduced, re-referenced, and reshaped into 3D epoched tensors ready for downstream ERP/time-frequency analysis. Subject-specific differences (presence/absence of bad channels) were handled correctly through the branching workflow.
+
+
 

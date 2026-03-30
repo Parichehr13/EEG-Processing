@@ -1,6 +1,6 @@
-%% SOLUTION OF EXERCISE 4 - Suggestion: run one section at a time
-%%same steps as EXERCISE 3
-%% Exercise 4 Point 1 - Load the file and plot the 19 EEG signals in time (before artifact correction)
+﻿%% CLOSED-EYES ICA STAGE - Suggestion: run one section at a time
+%%same steps as the open-eyes ICA stage
+%% Closed-Eyes ICA Stage Point 1 - Load the file and plot the 19 EEG signals in time (before artifact correction)
 %%Being the signals acquired in closed eyes condition, the blinking
 %%artifact in frontal electrodes is not present
 
@@ -35,8 +35,8 @@ set(gca,'ytickLabel',fliplr(ch_names))
 set(gca,'fontsize',11)
 grid
 
-%% Exercise 4 Point 2 - Compute and plot the power spectral density of the 19 EEG signals (before artifact correction)
-%It is possible to note that the signals here, compared to Exercise 3, has
+%% Closed-Eyes ICA Stage Point 2 - Compute and plot the power spectral density of the 19 EEG signals (before artifact correction)
+%It is possible to note that the signals here, compared to Open-Eyes ICA Stage, has
 %a more prominent alpha activity (peak around 10 Hz) since here the subject
 %is with closed eyes, and alpha rhythm is amplified in absence of visual
 %input
@@ -59,20 +59,20 @@ for i = 1:n
 end
 sgtitle('PSD of EEG signals (before artifact correction)')
 
-%% Exercise 4 Point 3 - Save the EEG data X for their use in EEGLAB
+%% Closed-Eyes ICA Stage Point 3 - Save the EEG data X for their use in EEGLAB
 
 %%comment the following instruction after the first usage
-%save dataExercise4.mat X
+%save closed_eyes_ica_input.mat X
 
-%% Exercise 4 Point 4  - Perform ICA and obtain the demixing matrix (using the GUI of EEGLAB)
-% Follow the instructions in the text of Exercise 4 (same as in Exercise 3: in eeglab, import dataExercise4.mat, compute and export the demixing
-% matrix (here saved in matrixW_Exercise4.txt), plot the topographical maps and save them in a .fig file (here
-% mapICs_Exercise4.fig)
+%% Closed-Eyes ICA Stage Point 4  - Perform ICA and obtain the demixing matrix (using the GUI of EEGLAB)
+% Follow the instructions in the text of Closed-Eyes ICA Stage (same as in Open-Eyes ICA Stage: in eeglab, import closed_eyes_ica_input.mat, compute and export the demixing
+% matrix (here saved in matrixW_closed_eyes.txt), plot the topographical maps and save them in a .fig file (here
+% mapICs_closed_eyes.fig)
 
-%% Exercise 4 Point 5 - Load the demixing matrix, compute and plot the ICs as a function of time
+%% Closed-Eyes ICA Stage Point 5 - Load the demixing matrix, compute and plot the ICs as a function of time
 
-load matrixW_Exercise4.txt 
-W=matrixW_Exercise4;
+load matrixW_closed_eyes.txt 
+W=matrixW_closed_eyes;
 A=inv(W); % mixing matrix A obtained by inverting the demixing matrix W
 Y=W*X;  % Y contains the estimated independent components (n x m)
 
@@ -103,7 +103,7 @@ set(gca,'yticklabel',fliplr(labels_IC))
 set(gca,'fontsize',11)
 grid
 
-%% Exercise 4 Point 6 - Compute and plot the power spectral density of the estimated ICs
+%% Closed-Eyes ICA Stage Point 6 - Compute and plot the power spectral density of the estimated ICs
 
 %same parameter setting as for EEG signals (X)
 window=5*srate; 
@@ -122,10 +122,10 @@ for i = 1:n
 end
 sgtitle('PSD of estimated independent components')
 
-%% Exercise 4 Point 7 - Identification of artifact components via exploration of time pattern, PSD, topographical map
+%% Closed-Eyes ICA Stage Point 7 - Identification of artifact components via exploration of time pattern, PSD, topographical map
 %%you can also open  the figure of the topographical maps created using
 %%EEGLAB (uncomment the following instruction)
-%openfig('mapICs_Exercise4.fig');
+%openfig('mapICs_closed_eyes.fig');
 
 %%I use the next istruction to better explore some ICs (IMPORTANT: since
 %%this function uses the topoplot function of EEGLAB toolbox, you need
@@ -140,7 +140,7 @@ plot_IC(index_IC,A,Y,PSD_IC,f,'Standard-10-20-Cap19.locs',srate,t(1),t(end))
 % little to the variance of data X, hence their removal has just a
 % little effect. 
     
-%% Exercise 4 Point 8 - Removal of the main artifact components, reconstruction of cleaned EEG, time pattern and PSD of the cleaned EEG
+%% Closed-Eyes ICA Stage Point 8 - Removal of the main artifact components, reconstruction of cleaned EEG, time pattern and PSD of the cleaned EEG
 
 Snew=Y;
 Snew([1,12:19],:)=0; % I cancel the ICs identified as artifact components
@@ -198,6 +198,8 @@ for i = 1:n
     ylabel('{\muV}^2/Hz')
 end
 sgtitle('PSD of EEG signals (before vs after artifact correction)')
+
+
 
 
 

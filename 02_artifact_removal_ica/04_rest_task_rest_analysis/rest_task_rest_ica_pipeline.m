@@ -1,6 +1,6 @@
-%% SOLUTION OF EXERCISE 6 - Suggestion: run one section at a time
+﻿%% REST-TASK-REST ICA STAGE - Suggestion: run one section at a time
 
-%% Exercise 6 Point 1 - Load the file and plot the 13 EEG signals in time
+%% REST-TASK-REST ICA Stage Point 1 - Load the file and plot the 13 EEG signals in time
 
 clear
 close all
@@ -38,7 +38,7 @@ set(gca,'ytickLabel',fliplr(ch_names))
 set(gca,'fontsize',11)
 grid
 
-%% Exercise 6 Point 2 - Compute and plot the power spectral density of the 13 EEG signals (before artifact correction)
+%% REST-TASK-REST ICA Stage Point 2 - Compute and plot the power spectral density of the 13 EEG signals (before artifact correction)
 
 window=srate*5;  %use sections of 5 seconds (number of points per section = 5*srate=5*128)
 NFFT=2*window; %number of points used for estimation of PSD = 10*srate-->zero-padding to increase
@@ -58,19 +58,19 @@ for i = 1:n
 end
 sgtitle('PSD of EEG signals (before artifact correction)')
 
-%% Exercise 6 Point 3 - Save the EEG data X for their use in EEGLAB
+%% REST-TASK-REST ICA Stage Point 3 - Save the EEG data X for their use in EEGLAB
 % comment the following instruction after the first usage
-%save dataExercise6.mat X
+%save rest_task_rest_ica_input.mat X
 
-%% Exercise 6 Point 4  - Perform ICA and obtain the demixing matrix (using the GUI of EEGLAB)
-% Follow the instructions in the text of Exercise 6 (in eeglab, import dataExercise6.mat, compute and export the demixing
-% matrix (here saved in matrixW_Exercise6.txt), plot the topographical maps and save them in a .fig file (here
-% mapICs_Exercise6.fig)
+%% REST-TASK-REST ICA Stage Point 4  - Perform ICA and obtain the demixing matrix (using the GUI of EEGLAB)
+% Follow the instructions in the text of REST-TASK-REST ICA Stage (in eeglab, import rest_task_rest_ica_input.mat, compute and export the demixing
+% matrix (here saved in matrixW_rest_task_rest.txt), plot the topographical maps and save them in a .fig file (here
+% mapICs_rest_task_rest.fig)
 
-%% Exercise 6 Point 5 - Load the demixing matrix, compute and plot the ICs as a function of time
+%% REST-TASK-REST ICA Stage Point 5 - Load the demixing matrix, compute and plot the ICs as a function of time
 
-load matrixW_Exercise6.txt 
-W=matrixW_Exercise6;
+load matrixW_rest_task_rest.txt 
+W=matrixW_rest_task_rest;
 A=inv(W); % mixing matrix A obtained by inverting the demixing matrix W
 Y=W*X;  % Y contains the estimated independent components (n x m)
 
@@ -101,7 +101,7 @@ set(gca,'yticklabel',fliplr(labels_IC))
 set(gca,'fontsize',11)
 grid
 
-%% Exercise 6 Point 6 - Compute and plot the power spectral density of the estimated ICs
+%% REST-TASK-REST ICA Stage Point 6 - Compute and plot the power spectral density of the estimated ICs
 
 %same parameter setting as for EEG signals (X)
 window=5*srate; 
@@ -120,10 +120,10 @@ for i = 1:n
 end
 sgtitle('PSD of estimated independent components')
 
-%% Exercise 6 Point 7 - Identification of artifact components via exploration of time pattern, PSD, topographical map
+%% REST-TASK-REST ICA Stage Point 7 - Identification of artifact components via exploration of time pattern, PSD, topographical map
 %%you can also open  the figure of the topographical maps created using
 %%EEGLAB (uncomment the following instruction)
-%openfig('mapICs_Exercise6.fig');
+%openfig('mapICs_rest_task_rest.fig');
 
 %%I use the next istruction to better explore some ICs (IMPORTANT: since
 %%this function uses the topoplot function of EEGLAB toolbox, you need
@@ -143,7 +143,7 @@ plot_IC([9 10 11],A,Y,PSD_IC,f,'Standard-10-20-Cap13.locs',srate,t(1),t(end))
 % prefer to mantain them as they also contain alpha power
 
 
-%% Exercise 6 Point 8 - Removal of the main artifact components, reconstruction of cleaned EEG, time pattern and PSD of the cleaned EEG
+%% REST-TASK-REST ICA Stage Point 8 - Removal of the main artifact components, reconstruction of cleaned EEG, time pattern and PSD of the cleaned EEG
 
 Snew=Y;
 Snew([1 2 3 4 8],:)=0; % I cancel the ICs identified as artifact components
@@ -209,7 +209,7 @@ for i = 1:n
 end
 sgtitle('PSD of EEG signals (before vs after artifact correction)')
 
-%% Exercise 6 Point 9 - Computation of PSD of the cleaned EEG separately in different phases (R1, T, R2)
+%% REST-TASK-REST ICA Stage Point 9 - Computation of PSD of the cleaned EEG separately in different phases (R1, T, R2)
 
 close all
 
@@ -272,7 +272,7 @@ sgtitle('PSD of EEG signals during RELAX R2')
 set(h1,'name','PHASE RELAX R2') 
 
 
-%% Exercise 6 Point 10 - Average of PSD over frontal, temporo-central, parieto-occipital channels, and plot (3 subplots)
+%% REST-TASK-REST ICA Stage Point 10 - Average of PSD over frontal, temporo-central, parieto-occipital channels, and plot (3 subplots)
 
 index_F = [1,2];
 index_CT = [3:7];
@@ -334,7 +334,7 @@ title('PSD over parietal-occipital channels')
 grid
 legend('relax-R1','task-T','relax-R2')
 
-%% Exercise 6 Point 11 - Compute the alpha power in each scalp region and for each phase, and plot
+%% REST-TASK-REST ICA Stage Point 11 - Compute the alpha power in each scalp region and for each phase, and plot
 
 imin=find(f==8); 
 imax=find(f==14); 
@@ -372,6 +372,8 @@ title('Alpha Power')
 grid
 l=legend({'Frontal','Temporo-Central','Parieto-Occipital'});
 set(l,'location','northwest')
+
+
 
 
 

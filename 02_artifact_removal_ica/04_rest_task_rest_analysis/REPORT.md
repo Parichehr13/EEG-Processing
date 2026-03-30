@@ -1,4 +1,4 @@
-# Report: Exercise 6 - REST/TASK/REST Spectral Dynamics After ICA Cleaning
+﻿# Report: Stage 02D - REST/TASK/REST Spectral Dynamics After ICA Cleaning
 
 ## Objective
 Analyze how EEG spectral content changes across three phases (Relax 1, Task, Relax 2) after ICA-based artifact correction, with focus on regional PSD and alpha-band power (8-14 Hz).
@@ -13,8 +13,8 @@ Analyze how EEG spectral content changes across three phases (Relax 1, Task, Rel
   - Relax 2 (R2): last 5 minutes
 - Channel locations: `Standard-10-20-Cap13.locs`
 - EEGLAB outputs used by script:
-  - demixing matrix: `matrixW_Exercise6.txt`
-  - IC topomap file: `mapICs_Exercise6.fig`
+  - demixing matrix: `matrixW_rest_task_rest.txt`
+  - IC topomap file: `mapICs_rest_task_rest.fig`
 
 ## Procedure 
 1. Loaded 13-channel EEG and plotted full-duration traces.
@@ -38,42 +38,42 @@ From IC inspection and script logic, removed:
 
 ## Results and Figures 
 ### Point 1 - Raw EEG (before correction)
-![Point 1 - Raw EEG](figures/exercise6_p01_fig_001.png)
+![Point 1 - Raw EEG](figures/stage02d_p01_fig_001.png)
 
 ### Point 2 - PSD of raw EEG
-![Point 2 - Raw EEG PSD](figures/exercise6_p02_fig_001.png)
+![Point 2 - Raw EEG PSD](figures/stage02d_p02_fig_001.png)
 
 ### Point 5 - Estimated ICs (time domain)
-![Point 5 - IC time courses](figures/exercise6_p05_fig_001.png)
+![Point 5 - IC time courses](figures/stage02d_p05_fig_001.png)
 
 ### Point 6 - PSD of ICs
-![Point 6 - IC PSD](figures/exercise6_p06_fig_001.png)
+![Point 6 - IC PSD](figures/stage02d_p06_fig_001.png)
 
 ### Point 7 - IC inspection panels (time/PSD/topography)
-![Point 7 - IC inspection 1](figures/exercise6_p07_fig_001.png)
-![Point 7 - IC inspection 2](figures/exercise6_p07_fig_002.png)
-![Point 7 - IC inspection 3](figures/exercise6_p07_fig_003.png)
-![Point 7 - IC inspection 4](figures/exercise6_p07_fig_004.png)
-![Point 7 - IC inspection 5](figures/exercise6_p07_fig_005.png)
-![Point 7 - IC inspection 6](figures/exercise6_p07_fig_006.png)
-![Point 7 - IC inspection 7](figures/exercise6_p07_fig_007.png)
-![Point 7 - IC inspection 8](figures/exercise6_p07_fig_008.png)
+![Point 7 - IC inspection 1](figures/stage02d_p07_fig_001.png)
+![Point 7 - IC inspection 2](figures/stage02d_p07_fig_002.png)
+![Point 7 - IC inspection 3](figures/stage02d_p07_fig_003.png)
+![Point 7 - IC inspection 4](figures/stage02d_p07_fig_004.png)
+![Point 7 - IC inspection 5](figures/stage02d_p07_fig_005.png)
+![Point 7 - IC inspection 6](figures/stage02d_p07_fig_006.png)
+![Point 7 - IC inspection 7](figures/stage02d_p07_fig_007.png)
+![Point 7 - IC inspection 8](figures/stage02d_p07_fig_008.png)
 
 ### Point 8 - Cleaned EEG and pre/post PSD comparison
-![Point 8 - Cleaned EEG (time)](figures/exercise6_p08_fig_001.png)
-![Point 8 - PSD after correction](figures/exercise6_p08_fig_002.png)
-![Point 8 - PSD before vs after](figures/exercise6_p08_fig_003.png)
+![Point 8 - Cleaned EEG (time)](figures/stage02d_p08_fig_001.png)
+![Point 8 - PSD after correction](figures/stage02d_p08_fig_002.png)
+![Point 8 - PSD before vs after](figures/stage02d_p08_fig_003.png)
 
 ### Point 9 - Phase-specific PSD (R1, T, R2)
-![Point 9 - PSD Relax R1](figures/exercise6_p09_fig_001.png)
-![Point 9 - PSD Task T](figures/exercise6_p09_fig_002.png)
-![Point 9 - PSD Relax R2](figures/exercise6_p09_fig_003.png)
+![Point 9 - PSD Relax R1](figures/stage02d_p09_fig_001.png)
+![Point 9 - PSD Task T](figures/stage02d_p09_fig_002.png)
+![Point 9 - PSD Relax R2](figures/stage02d_p09_fig_003.png)
 
 ### Point 10 - Regional PSD by phase
-![Point 10 - Regional PSD comparison](figures/exercise6_p10_fig_001.png)
+![Point 10 - Regional PSD comparison](figures/stage02d_p10_fig_001.png)
 
 ### Point 11 - Alpha power by phase and region
-![Point 11 - Alpha power trends](figures/exercise6_p11_fig_001.png)
+![Point 11 - Alpha power trends](figures/stage02d_p11_fig_001.png)
 
 ## Interpretation
 - ICA removal suppresses major non-neural contamination while preserving relevant EEG rhythms.
@@ -82,5 +82,7 @@ From IC inspection and script logic, removed:
 - Alpha-power curves provide a compact quantitative summary of phase-related changes and recovery trends from task back to relax.
 
 ## Conclusion
-Exercise 6 successfully combines ICA cleaning with phase-specific spectral analysis and regional alpha-power quantification. The pipeline provides both qualitative and quantitative evidence of state-dependent EEG modulation in a REST-TASK-REST paradigm.
+Stage 02D successfully combines ICA cleaning with phase-specific spectral analysis and regional alpha-power quantification. The pipeline provides both qualitative and quantitative evidence of state-dependent EEG modulation in a REST-TASK-REST paradigm.
+
+
 

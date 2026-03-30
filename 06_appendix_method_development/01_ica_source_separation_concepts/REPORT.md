@@ -1,9 +1,9 @@
-# Report: Exercise 2 - PCA and ICA on Synthetic Mixtures
+﻿# Report: Appendix Stage 01 - PCA and ICA on Synthetic Mixtures
 
 ## Objective
 Study the difference between Principal Component Analysis (PCA) and Independent Component Analysis (ICA) for source separation, using synthetic signals with known ground truth.
 
-## Exercise Setup 
+## Appendix Setup 
 - Duration: 10 s
 - Sampling frequency: 500 Hz
 - Independent sources:
@@ -24,28 +24,28 @@ Study the difference between Principal Component Analysis (PCA) and Independent 
 
 ## Results and Figure Mapping
 ### Figure 1 - Original sources and 3-variable mixtures
-![Figure 1 - Sources and 3-var mixtures](figures/exercise2_fig_001.png)
+![Figure 1 - Sources and 3-var mixtures](figures/appendix01_fig_001.png)
 
 ### Figure 2 - PCA on 3-variable mixtures
-![Figure 2 - PCA (3-variable case)](figures/exercise2_fig_002.png)
+![Figure 2 - PCA (3-variable case)](figures/appendix01_fig_002.png)
 
 ### Figure 3 - ICA on 3-variable mixtures
-![Figure 3 - ICA recovery (3-variable case)](figures/exercise2_fig_003.png)
+![Figure 3 - ICA recovery (3-variable case)](figures/appendix01_fig_003.png)
 
 ### Figure 4 - 5-variable mixtures
-![Figure 4 - 5-variable observed mixtures](figures/exercise2_fig_004.png)
+![Figure 4 - 5-variable observed mixtures](figures/appendix01_fig_004.png)
 
 ### Figure 5 - PCA on 5-variable mixtures
-![Figure 5 - PCA (5-variable case)](figures/exercise2_fig_005.png)
+![Figure 5 - PCA (5-variable case)](figures/appendix01_fig_005.png)
 
 ### Figure 6 - ICA on first 3 PCs (`Y3`)
-![Figure 6 - ICA after PCA reduction](figures/exercise2_fig_006.png)
+![Figure 6 - ICA after PCA reduction](figures/appendix01_fig_006.png)
 
 ### Figure 7 - ICA with EEGLAB internal PCA (`'PCA',3`)
-![Figure 7 - ICA with internal PCA](figures/exercise2_fig_007.png)
+![Figure 7 - ICA with internal PCA](figures/appendix01_fig_007.png)
 
 ### Figure 8 - Additional ICA/PCA separation output
-![Figure 8 - Additional separation output](figures/exercise2_fig_008.png)
+![Figure 8 - Additional separation output](figures/appendix01_fig_008.png)
 
 ## Discussion
 - PCA decorrelates the observed variables and orders components by variance, but does not generally recover the original independent generators.
@@ -54,7 +54,9 @@ Study the difference between Principal Component Analysis (PCA) and Independent 
 - EEGLAB internal PCA (`'PCA',3`) and explicit PCA-then-ICA are consistent approaches for this scenario.
 
 ## Conclusion
-Exercise 2 confirms the complementary roles of PCA and ICA:
+Appendix Stage 01 confirms the complementary roles of PCA and ICA:
 - PCA is effective for compact representation and dimensionality reduction.
 - ICA is the key step for recovering statistically independent latent sources from linear mixtures.
+
+
 

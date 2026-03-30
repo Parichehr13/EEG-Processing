@@ -1,4 +1,4 @@
-# Report: Exercise 5 - ICA Cleaning on 13-Channel EEG
+﻿# Report: Stage 02C - ICA Cleaning on 13-Channel EEG
 
 ## Objective
 Apply ICA-based artifact rejection to a 13-channel EEG recording with evident ocular contamination, then evaluate signal quality improvements in both time and frequency domains.
@@ -9,8 +9,8 @@ Apply ICA-based artifact rejection to a 13-channel EEG recording with evident oc
 - Sampling rate: 128 Hz
 - Channel locations for topography: `Standard-10-20-Cap13.locs`
 - EEGLAB outputs used by script:
-  - demixing matrix: `matrixW_Exercise5.txt`
-  - IC topomap file: `mapICs_Exercise5.fig`
+  - demixing matrix: `matrixW_13ch.txt`
+  - IC topomap file: `mapICs_13ch.fig`
 
 ## Procedure 
 1. Loaded 13-channel EEG and plotted full recording (45 s).
@@ -33,35 +33,37 @@ Removed set in reconstruction: `IC1, IC3, IC6, IC7, IC8`.
 
 ## Results and Figures
 ### Point 1 - Raw 13-channel EEG (before correction)
-![Point 1 - Raw EEG](figures/exercise5_p01_fig_001.png)
+![Point 1 - Raw EEG](figures/stage02c_p01_fig_001.png)
 
 ### Point 2 - PSD of raw EEG
-![Point 2 - Raw EEG PSD](figures/exercise5_p02_fig_001.png)
+![Point 2 - Raw EEG PSD](figures/stage02c_p02_fig_001.png)
 
 ### Point 5 - Estimated ICs (time domain)
-![Point 5 - IC time courses](figures/exercise5_p05_fig_001.png)
+![Point 5 - IC time courses](figures/stage02c_p05_fig_001.png)
 
 ### Point 6 - PSD of ICs
-![Point 6 - IC PSD](figures/exercise5_p06_fig_001.png)
+![Point 6 - IC PSD](figures/stage02c_p06_fig_001.png)
 
 ### Point 7 - Detailed IC inspection panels
-![Point 7 - IC inspection 1](figures/exercise5_p07_fig_001.png)
-![Point 7 - IC inspection 2](figures/exercise5_p07_fig_002.png)
-![Point 7 - IC inspection 3](figures/exercise5_p07_fig_003.png)
-![Point 7 - IC inspection 4](figures/exercise5_p07_fig_004.png)
-![Point 7 - IC inspection 5](figures/exercise5_p07_fig_005.png)
+![Point 7 - IC inspection 1](figures/stage02c_p07_fig_001.png)
+![Point 7 - IC inspection 2](figures/stage02c_p07_fig_002.png)
+![Point 7 - IC inspection 3](figures/stage02c_p07_fig_003.png)
+![Point 7 - IC inspection 4](figures/stage02c_p07_fig_004.png)
+![Point 7 - IC inspection 5](figures/stage02c_p07_fig_005.png)
 
 ### Point 8 - Cleaned EEG and pre/post PSD comparison
-![Point 8 - Cleaned EEG (time)](figures/exercise5_p08_fig_001.png)
-![Point 8 - PSD after correction](figures/exercise5_p08_fig_002.png)
-![Point 8 - PSD before vs after](figures/exercise5_p08_fig_003.png)
+![Point 8 - Cleaned EEG (time)](figures/stage02c_p08_fig_001.png)
+![Point 8 - PSD after correction](figures/stage02c_p08_fig_002.png)
+![Point 8 - PSD before vs after](figures/stage02c_p08_fig_003.png)
 
 ## Interpretation
 - ICA isolates non-neural sources that overlap with EEG in frequency and are difficult to remove via simple filtering alone.
 - After IC rejection, the time-domain traces show reduced large-amplitude ocular/motion contamination.
 - PSD overlays indicate cleaner channel spectra while preserving physiologically meaningful EEG content.
-- The workflow is consistent with Exercises 3 and 4, adapted here to the 13-channel montage and the stronger lateral eye-movement artifact.
+- The workflow is consistent with Stages 02A and 02B, adapted here to the 13-channel montage and the stronger lateral eye-movement artifact.
 
 ## Conclusion
-Exercise 5 successfully improves signal quality through ICA-based artifact rejection on a low-density montage. Removing IC1/3/6/7/8 yields cleaner EEG suitable for downstream analyses while preserving relevant neural dynamics.
+Stage 02C successfully improves signal quality through ICA-based artifact rejection on a low-density montage. Removing IC1/3/6/7/8 yields cleaner EEG suitable for downstream analyses while preserving relevant neural dynamics.
+
+
 

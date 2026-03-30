@@ -1,5 +1,5 @@
-
-%% Exercise 2 Point 1 - Generate and plot the independent signals S and their mixtures X (3 vars)
+﻿
+%% Appendix Stage 01 Point 1 - Generate and plot the independent signals S and their mixtures X (3 vars)
 
 clear 
 close all
@@ -54,7 +54,7 @@ for i=1:n
 end
 xlabel('t (s)','fontsize',12)
 
-%% Exercise 2  Points 2 and 3 - Principal Component Analysis 
+%% Appendix Stage 01  Points 2 and 3 - Principal Component Analysis 
 
 Cx=cov(X');     % covariance matrix of X
 [V,D]=eig(Cx); % produces a diagonal matrix D of the eigenvalues of Cx and 
@@ -87,7 +87,7 @@ xlabel('t (s)','fontsize',12)
 % The PCs are very different from the original independent
 % components S (each PC is still a linear combination of the three original components s1, s2, s3):
 % the PCs are uncorrelated but not independent.
-%% Exercise 2  Points 4 and 5- Obtain the demixing matrix of X using EEGLAB and compute the independent components
+%% Appendix Stage 01  Points 4 and 5- Obtain the demixing matrix of X using EEGLAB and compute the independent components
 
 % First, save the datased X in a .mat file
 % comment the save istruction after the first use
@@ -98,7 +98,7 @@ xlabel('t (s)','fontsize',12)
 % estimate the demixing matrix of X. Import in EEGLAB the data cointained in dataX_ex2.mat.  
 % Then apply the ICA by using the options
 % 'extended',1,'bias','off','rndreset','no' 
-% Finally, following the instructions in Laboratory_Exercise2.pdf, export the computed demixing matrix
+% Finally, following the instructions in Laboratory_PCA_ICA_Synthetic.pdf, export the computed demixing matrix
 % in a .txt file using  'File>Export>Weight matrix to text file'.
 % Here, the demixing matrix obtained by EEGLAB was saved in
 % matrixW_X_ex.2.txt 
@@ -122,7 +122,7 @@ for i=1:n
 end
 xlabel('t (s)','fontsize',12)
 
-%% Exercise 2 Point 6 to 8 - Generate and plot the mixtures X (5 vars), compute and plot the PCs
+%% Appendix Stage 01 Point 6 to 8 - Generate and plot the mixtures X (5 vars), compute and plot the PCs
 
 A=[0.5 0.5 0.7      %the mixing matrix
    0.7 0.2 0.4
@@ -180,7 +180,7 @@ xlabel('t (s)','fontsize',12)
 % components s1, s2, s3 (each PC is still a linear combination of the original s1, s2, s3 ):
 % the PCs are uncorrelated but not independent. 
 
-%% Exercise 2  Points 9 and 10- Obtain the demixing matrix of the first three PCs Y(1:3,:) using EEGLAB and compute the independent components
+%% Appendix Stage 01  Points 9 and 10- Obtain the demixing matrix of the first three PCs Y(1:3,:) using EEGLAB and compute the independent components
 
 % First, save the first three PCs in a .mat file
 % comment the save istruction after the first use
@@ -191,7 +191,7 @@ Y3=Y(1:3,:);
 % estimate the demixing matrix of Y3. Import in EEGLAB the data cointained in PC3_ex2.mat.  
 % Then apply the ICA by using the options
 % 'extended',1,'bias','off','rndreset','no'
-% Finally, following the instructions in Laboratory_Exercise2.pdf, export the computed demixing matrix
+% Finally, following the instructions in Laboratory_PCA_ICA_Synthetic.pdf, export the computed demixing matrix
 % in a .txt file using  'File>Export>Weight matrix to text file'.
 % Here, the demixing matrix obtained by EEGLAB was saved in
 % matrixW_PC3_ex.2.txt 
@@ -214,7 +214,7 @@ for i=1:3
 end
 xlabel('t (s)','fontsize',12)
 
-%% Exercise 2  Note - EEGLAB can perform internally PCA before ICA. The 5 vars X are imported in EEGLAB and PCA before ICA is applied
+%% Appendix Stage 01  Note - EEGLAB can perform internally PCA before ICA. The 5 vars X are imported in EEGLAB and PCA before ICA is applied
 
 % First, save the datased X in a .mat file
 % comment the save istruction after the first use
@@ -252,6 +252,7 @@ for i=1:n
     ylim([-0.5 0.5])    
 end
 xlabel('t (s)','fontsize',12)
+
 
 
 

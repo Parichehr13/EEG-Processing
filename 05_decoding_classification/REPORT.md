@@ -1,4 +1,4 @@
-# Report: Exercise 10 - Motor Imagery Classification with EEGNet (Python)
+﻿# Report: Stage 05 - Motor Imagery Classification with EEGNet (Python)
 
 ## Objective
 Train a convolutional neural network (EEGNet) to classify single-trial motor imagery EEG into 4 classes:
@@ -31,21 +31,21 @@ Training setup used in the executed run:
 
 ## Figures
 ### Class Distribution per Split
-![Exercise 10 - Class histogram](figures/exercise10_py_fig_001.png)
+![Stage 05 - Class histogram](figures/stage05_decoding_fig_001.png)
 
 Figure explanation:
 - The split is reasonably balanced across the 4 classes in train, validation, and test sets.
 - This supports the use of overall accuracy and confusion matrices without strong class-imbalance bias.
 
 ### Training Curves (Loss and Accuracy)
-![Exercise 10 - Training and validation curves](figures/exercise10_py_fig_002.png)
+![Stage 05 - Training and validation curves](figures/stage05_decoding_fig_002.png)
 
 Figure explanation:
 - Loss decreases steadily and validation loss follows the same trend, indicating stable optimization.
 - Accuracy rises on both sets with a limited train-validation gap, suggesting controlled overfitting.
 
 ### Confusion Matrices (Train/Validation/Test)
-![Exercise 10 - Confusion matrices](figures/exercise10_py_fig_003.png)
+![Stage 05 - Confusion matrices](figures/stage05_decoding_fig_003.png)
 
 Figure explanation:
 - Training and validation confusion matrices are strongly diagonal, confirming good internal fit.
@@ -53,11 +53,11 @@ Figure explanation:
 - This behavior is consistent with session/domain shift effects in BCI IV2a.
 
 ### Spatial Filter Importance by Channel
-![Exercise 10 - Spatial filter channel importance](figures/exercise10_py_fig_004.png)
+![Stage 05 - Spatial filter channel importance](figures/stage05_decoding_fig_004.png)
 
 Figure explanation:
 - The barplot shows channel-wise contribution derived from absolute/averaged spatial-filter weights in EEGNet.
-- Higher-weight channels are concentrated in central/centro-parietal regions, which is coherent with motor-imagery physiology highlighted in the exercise PDF.
+- Higher-weight channels are concentrated in central/centro-parietal regions, which is coherent with motor-imagery physiology highlighted in the project PDF.
 
 ## Quantitative Results
 From the executed Python run:
@@ -69,3 +69,4 @@ Interpretation:
 - The model learns stable discriminative patterns (high train/validation scores).
 - Test performance remains solid but lower than train/validation, indicating expected domain/generalization difficulty on held-out session data.
 - Spatial-weight aggregation supports neurophysiological plausibility of the learned solution (motor-area relevance).
+

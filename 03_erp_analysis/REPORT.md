@@ -1,28 +1,28 @@
-# Report: Exercise 8a and 8b - ERP Averaging (WSA and GA)
+﻿# Report: Stage 03 - ERP Averaging (WSA and GA)
 
 ## Objective
-Exercise 8 quantifies event-related activity after preprocessing by comparing ERP responses for:
+Stage 03 quantifies event-related activity after preprocessing by comparing ERP responses for:
 - `standard`,
 - `target`,
 - `distractor`.
 
 Two analysis levels are used:
-- **Exercise 8a:** Within-Subject Averages (WSA),
-- **Exercise 8b:** Grand Average (GA) across subjects.
+- **Stage 03a:** Within-Subject Averages (WSA),
+- **Stage 03b:** Grand Average (GA) across subjects.
 
 ## Methodological Context
 The goal is to improve signal-to-noise ratio while preserving the neural signal of interest.  
 In ERP analysis, averaging across repeated trials is the main denoising step: stimulus-locked components add constructively, while non-locked fluctuations are attenuated.
 
-This exercise starts from `PreprocessStep2` outputs, meaning data are already cleaned, re-referenced, and epoched before ERP-specific averaging.
+This stage starts from `PreprocessStep2` outputs, meaning data are already cleaned, re-referenced, and epoched before ERP-specific averaging.
 
 ## Inputs
 - `sub-035_PreprocessStep2.mat`, `sub-003_PreprocessStep2.mat`: single-subject epoched EEG (`60 x 500 x trials`).
 - `WSA_allsubjects.mat`: condition-specific WSA across all subjects, used for GA.
 - `Standard-10-20-Cap60.locs`: channel geometry for scalp interpolation.
-- `Exercise8a.m`, `Exercise8b.m`: reference scripts.
+- `erp_within_subject_analysis.m`, `erp_group_grand_average.m`: reference scripts.
 
-## Exercise 8a - Single-Subject ERP (WSA)
+## Stage 03a - Single-Subject ERP (WSA)
 ### Pipeline
 1. Load one subject (`sub-035` in the current script setup).
 2. Apply baseline correction using the pre-stimulus window from `-200 to 0 ms` (samples `1:101`).
@@ -38,15 +38,15 @@ This exercise starts from `PreprocessStep2` outputs, meaning data are already cl
 Baseline removal shifts each epoch relative to its own pre-stimulus mean, reducing slow offsets and making condition differences after `0 ms` more comparable across trials.
 
 ### Figures
-![Exercise 8a - WSA waveforms at Fz/Cz/Pz](figures/exercise8a_p05_fig_001.png)
-![Exercise 8a - WSA topographical maps](figures/exercise8a_p06_fig_001.png)
+![Stage 03a - WSA waveforms at Fz/Cz/Pz](figures/stage03a_p05_fig_001.png)
+![Stage 03a - WSA topographical maps](figures/stage03a_p06_fig_001.png)
 
 ### Interpretation (8a)
 - Waveforms show condition-dependent divergence after stimulus onset.
 - Late positive activity is stronger for target than standard, especially over centro-parietal sites (consistent with oddball-like processing).
 - Topomaps confirm that effects are not only temporal but also spatial, with stronger posterior/centro-parietal positivity in later windows.
 
-## Exercise 8b - Group-Level ERP (GA)
+## Stage 03b - Group-Level ERP (GA)
 ### Pipeline
 1. Load all-subject WSA arrays.
 2. Compute GA for each condition by averaging over subjects.
@@ -54,8 +54,8 @@ Baseline removal shifts each epoch relative to its own pre-stimulus mean, reduci
 4. Plot GA scalp maps with the same temporal sampling as 8a.
 
 ### Figures
-![Exercise 8b - GA waveforms at Fz/Cz/Pz](figures/exercise8b_p03_fig_001.png)
-![Exercise 8b - GA topographical maps](figures/exercise8b_p04_fig_001.png)
+![Stage 03b - GA waveforms at Fz/Cz/Pz](figures/stage03b_p03_fig_001.png)
+![Stage 03b - GA topographical maps](figures/stage03b_p04_fig_001.png)
 
 ### Interpretation (8b)
 - GA reduces subject-specific variability and highlights robust population-level responses.
@@ -65,3 +65,5 @@ Baseline removal shifts each epoch relative to its own pre-stimulus mean, reduci
 ## WSA vs GA (Key Difference)
 - **WSA (8a):** preserves subject-specific morphology and amplitude.
 - **GA (8b):** emphasizes effects stable across subjects, typically with smoother and less noisy traces.
+
+

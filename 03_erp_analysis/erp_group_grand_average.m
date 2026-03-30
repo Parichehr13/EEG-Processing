@@ -1,9 +1,9 @@
-%% SOLUTION OF EXERCISE 8b - Suggestion: run one section at a time
-%%(IMPORTANT:in one point, you need to use the topoplot function of EEGLAB toolbox. To this aim, before running this file,
-% first launch EEGLAB from the Command Window. Then, close the EEGLAB GUI
+﻿%% SOLUTION OF xXxRCISx 8b - Suggestion: run one section at a time
+%%(IMPORTANT:in one point, you need to use the topoplot function of xxGLAB toolbox. To this aim, before running this file,
+% first launch xxGLAB from the Command Window. Then, close the xxGLAB GUI
 % and clear the workspace (clear)
 
-%% Exercise 8b Points 1 & 2 - Load the file containing WSA of all subjects and compute the Grand Averages
+%% xxercise 8b Points 1 & 2 - Load the file containing WSA of all subjects and compute the Grand Averages
  
 clear
 close all
@@ -15,7 +15,7 @@ GA_standard=mean(WSA_standard_allsubj,3);     %n=60 chans x 500 samples
 GA_target=mean(WSA_target_allsubj,3);         %n=60 chans x 500 samples 
 GA_distractor=mean(WSA_distractor_allsubj,3); %n=60 chans x 500 samples 
 
-%% Exercise 8b Point 3 - Plot the GA waveforms for channels Fz, Cz, Pz in the three conditions
+%% xxercise 8b Point 3 - Plot the GA waveforms for channels Fz, Cz, Pz in the three conditions
 
 ch_F=12; %Fz
 ch_C=30; %Cz
@@ -63,7 +63,7 @@ set(l,'fontsize',7,'location',location_legend)
 title(ch_names{ch_P})
 grid
 
-%% Exercise 8b Point 4 - Plot the topographical maps of GA at different times, for the three conditions
+%% xxercise 8b Point 4 - Plot the topographical maps of GA at different times, for the three conditions
 
 frames = [0.2:0.1:0.9]*srate;
 n_condition=3; % number of conditions =3 (standard target distractor)
@@ -129,4 +129,5 @@ annotation(figtopo,'textbox',...
     'LineStyle','none',...
     'FontWeight','bold',...
     'FitBoxToText','off');
+
 
