@@ -22,13 +22,3 @@ This repository covers EEG preprocessing, ICA artifact removal, ERP analysis, ti
 
 6. `06_appendix_method_development`
    - Method-development appendix (PCA/ICA source separation concepts on synthetic mixtures).
-
-## Stage Dependency
-
-`01_preprocessing` -> `02_artifact_removal_ica` -> `03_erp_analysis` / `04_time_frequency_analysis`
-
-`05_decoding_classification` is a parallel decoding track with its own dataset pipeline.
-
-## Reproducibility
-
-- [scripts/README.md](scripts/README.md): runner-layer usage.
