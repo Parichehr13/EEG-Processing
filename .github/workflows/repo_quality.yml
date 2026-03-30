@@ -20,8 +20,6 @@ jobs:
       - name: Verify required docs
         run: |
           test -f README.md
-          test -f RUNBOOK.md
-          test -f ENVIRONMENT.md
           test -f CITATION.cff
 
       - name: Python syntax check

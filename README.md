@@ -31,9 +31,6 @@ Each stage contains code, figures, and a report.
 `05_decoding_classification` is a parallel decoding track with its own dataset pipeline.
 
 ## Reproducibility
-
-- [RUNBOOK.md](RUNBOOK.md): execution order and run commands.
-- [ENVIRONMENT.md](ENVIRONMENT.md): MATLAB/Python dependency specification.
 - [scripts/README.md](scripts/README.md): runner-layer usage.
 
 ## Professional Repository Standards
