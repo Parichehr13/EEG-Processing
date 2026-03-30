@@ -3,6 +3,10 @@
 This repository is organized as one end-to-end EEG research pipeline.
 Each stage contains code, figures, and a report.
 
+## About
+
+End-to-end EEG processing portfolio covering preprocessing, ICA-based artifact removal, ERP analysis, time-frequency analysis, and motor-imagery decoding.
+
 ## Project Pipeline
 
 1. `01_preprocessing`
@@ -31,17 +35,5 @@ Each stage contains code, figures, and a report.
 `05_decoding_classification` is a parallel decoding track with its own dataset pipeline.
 
 ## Reproducibility
+
 - [scripts/README.md](scripts/README.md): runner-layer usage.
-
-## Professional Repository Standards
-
-- [CITATION.cff](CITATION.cff): citation metadata for academic reuse.
-
-## Final Setup (Recommended)
-
-Update placeholders in `CITATION.cff`:
-
-- Your first/last name
-- Your affiliation
-- Your repository URL
-
