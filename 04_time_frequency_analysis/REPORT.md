@@ -30,13 +30,13 @@ The main physiological marker discussed in the lab notes is **alpha-band (8-14 H
 - 3x3 TF maps at Fz/Cz/Pz (rows = conditions),
 - 3x8 alpha topomaps from `0` to `700 ms` in `100 ms` steps.
 
-### 9b: Group-level time-frequency analysis
+### Group-level time-frequency analysis
 1. Load `TF_Power_GA.mat`.
 2. Plot TF maps at Fz/Cz/Pz for the three conditions.
 3. Extract alpha band (`8-14 Hz`) and plot topographic evolution (`0-700 ms`).
 
 ## Results
-### 9a - Subject 003
+### Subject 003
 ![Stage 04a (sub-003) - TF maps at Fz/Cz/Pz](figures/stage04a_sub003_p07_fig_001.png)
 ![Stage 04a (sub-003) - Alpha topography over time](figures/stage04a_sub003_p08_fig_001.png)
 
@@ -44,7 +44,7 @@ Interpretation:
 - Alpha decrease (blue) appears mainly in the **target** condition, around late post-stimulus latency (about 400 ms onward).
 - Topography suggests central/parietal involvement during target processing.
 
-### 9a - Subject 035
+### Subject 035
 ![Stage 04a (sub-035) - TF maps at Fz/Cz/Pz](figures/stage04a_sub035_p07_fig_001.png)
 ![Stage 04a (sub-035) - Alpha topography over time](figures/stage04a_sub035_p08_fig_001.png)
 
@@ -52,7 +52,7 @@ Interpretation:
 - Alpha desynchronization is visible earlier (around 300 ms), strongest in target and slightly present in distractor.
 - Effects are clear at fronto-central and parietal regions in the alpha topomaps.
 
-### 9b - Grand Average (all subjects)
+### Grand Average (all subjects)
 ![Stage 04b - GA TF maps at Fz/Cz/Pz](figures/stage04b_p02_fig_001.png)
 ![Stage 04b - GA alpha topography over time](figures/stage04b_p03_fig_001.png)
 
