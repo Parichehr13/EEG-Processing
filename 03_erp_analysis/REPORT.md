@@ -57,13 +57,13 @@ Baseline removal shifts each epoch relative to its own pre-stimulus mean, reduci
 ![Stage 03b - GA waveforms at Fz/Cz/Pz](figures/stage03b_p03_fig_001.png)
 ![Stage 03b - GA topographical maps](figures/stage03b_p04_fig_001.png)
 
-### Interpretation (8b)
+### Interpretation
 - GA reduces subject-specific variability and highlights robust population-level responses.
 - The target condition keeps the clearest late positive deflection relative to standard/distractor.
 - The GA topography supports a distributed centro-parietal dominance in the later post-stimulus period, matching canonical ERP expectations.
 
 ## WSA vs GA (Key Difference)
-- **WSA (8a):** preserves subject-specific morphology and amplitude.
-- **GA (8b):** emphasizes effects stable across subjects, typically with smoother and less noisy traces.
+- **WSA:** preserves subject-specific morphology and amplitude.
+- **GA:** emphasizes effects stable across subjects, typically with smoother and less noisy traces.
 
 
