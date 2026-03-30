@@ -1,0 +1,34 @@
+name: Repo Quality
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  quality-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Verify required docs
+        run: |
+          test -f README.md
+          test -f RUNBOOK.md
+          test -f ENVIRONMENT.md
+          test -f PROJECT_SUMMARY.md
+          test -f CONTRIBUTING.md
+          test -f CITATION.cff
+
+      - name: Python syntax check
+        run: |
+          python -m py_compile scripts/run_stage05.py
+          python -m py_compile 05_decoding_classification/python/run_decoding_export.py
+          python -m py_compile 05_decoding_classification/python/eegnet_motor_imagery.py
+          python -m py_compile 05_decoding_classification/python/decoding_utils/utils.py

@@ -1,15 +1,53 @@
-# EEG Processing - Exercise Overview
+﻿# EEG Processing Project
 
-This repository contains 10 EEG analysis projects.  
-Each folder includes code, figures, and a report.
+This repository is organized as one end-to-end EEG research pipeline rather than isolated modules.
+Each stage contains code, figures, and a report.
 
-1. `exercise01`: EEG preprocessing basics (resampling, detrending, filtering, epoching, bad-channel check).
-2. `exercise02`: PCA/ICA on synthetic mixtures (source separation concepts).
-3. `exercise03`: ICA-based artifact removal on EEG (time + PSD comparison before/after cleaning).
-4. `exercise04`: ICA cleaning workflow on a second EEG dataset (IC inspection and correction).
-5. `exercise05`: ICA cleaning on 13-channel EEG and comparison across conditions.
-6. `exercise06`: Rest-task-rest EEG analysis (artifact correction + condition-level spectral changes).
-7. `exercise07`: Preprocessing pipeline completion (ICA, interpolation, re-reference, final epoched output).
-8. `exercise08`: ERP analysis (single-subject WSA and group-level grand average, waveforms + topomaps).
-9. `exercise09`: Time-frequency analysis with CWT (ERSP-style maps and alpha-band scalp evolution).
-10. `exercise10`: Motor imagery classification with EEGNet (Python pipeline, training curves, confusion matrices, spatial weights).
+## Project Pipeline
+
+1. `01_preprocessing`
+   - Signal preparation: detrending, filtering, epoching, bad-channel detection.
+
+2. `02_artifact_removal_ica`
+   - ICA-based artifact rejection workflows and preprocessing completion to `PreprocessStep2`.
+   - Includes multiple ICA case studies (open eyes, closed eyes, 13-channel setup, REST/TASK/REST analysis).
+
+3. `03_erp_analysis`
+   - Event-related potential analysis (single-subject and group-level).
+
+4. `04_time_frequency_analysis`
+   - Time-frequency analysis with CWT and alpha-band spatiotemporal evolution.
+
+5. `05_decoding_classification`
+   - Motor imagery classification using EEGNet (Python).
+
+6. `06_appendix_method_development`
+   - Method-development appendix (PCA/ICA source separation concepts on synthetic mixtures).
+
+## Stage Dependency
+
+`01_preprocessing` -> `02_artifact_removal_ica` -> `03_erp_analysis` / `04_time_frequency_analysis`
+
+`05_decoding_classification` is a parallel decoding track with its own dataset pipeline.
+
+## Reproducibility
+
+- [RUNBOOK.md](RUNBOOK.md): execution order and run commands.
+- [ENVIRONMENT.md](ENVIRONMENT.md): MATLAB/Python dependency specification.
+- [PROJECT_SUMMARY.md](PROJECT_SUMMARY.md): concise project overview.
+- [scripts/README.md](scripts/README.md): runner-layer usage.
+
+## Professional Repository Standards
+
+- [CONTRIBUTING.md](CONTRIBUTING.md): contribution and reproducibility expectations.
+- [CITATION.cff](CITATION.cff): citation metadata for academic reuse.
+- `.github/`: issue templates, PR template, and a lightweight quality workflow.
+
+## Final Setup (Recommended)
+
+Update placeholders in `CITATION.cff`:
+
+- Your first/last name
+- Your affiliation
+- Your repository URL
+

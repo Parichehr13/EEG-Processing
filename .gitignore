@@ -1,0 +1,27 @@
+# OS and editor artifacts
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# MATLAB local/session artifacts
+*.asv
+*.mlx.autosave
+.matlab_tmp/
+.matlab_prefs/
+.matlab_prefs_tmp/
+
+# Python artifacts
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# Logs
+*.log
