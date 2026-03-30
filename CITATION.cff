@@ -5,10 +5,10 @@ type: software
 version: "0.1.0"
 date-released: "2026-03-30"
 authors:
-  - family-names: "LastName"
-    given-names: "FirstName"
-    affiliation: "Your University"
-repository-code: "https://github.com/your-username/EEG-Processing"
+  - name: "Parichehr"
+    email: "Pariii.chehrr@gmail.com"
+    affiliation: "Independent Researcher"
+repository-code: "https://github.com/Parichehr13/EEG-Processing"
 abstract: "End-to-end EEG processing pipeline covering preprocessing, ICA-based artifact removal, ERP analysis, time-frequency analysis, and decoding."
 keywords:
   - EEG
