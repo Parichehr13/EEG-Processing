@@ -1,6 +1,6 @@
 ﻿# EEG Processing Project
  
-End-to-end EEG processing portfolio covering preprocessing, ICA-based artifact removal, ERP analysis, time-frequency analysis, and motor-imagery decoding.
+This repository covers EEG preprocessing, ICA artifact removal, ERP analysis, time-frequency analysis, and motor-imagery decoding
 
 ## Project Pipeline
 
