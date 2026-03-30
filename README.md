@@ -34,12 +34,10 @@ Each stage contains code, figures, and a report.
 
 - [RUNBOOK.md](RUNBOOK.md): execution order and run commands.
 - [ENVIRONMENT.md](ENVIRONMENT.md): MATLAB/Python dependency specification.
-- [PROJECT_SUMMARY.md](PROJECT_SUMMARY.md): concise project overview.
 - [scripts/README.md](scripts/README.md): runner-layer usage.
 
 ## Professional Repository Standards
 
-- [CONTRIBUTING.md](CONTRIBUTING.md): contribution and reproducibility expectations.
 - [CITATION.cff](CITATION.cff): citation metadata for academic reuse.
 - `.github/`: issue templates, PR template, and a lightweight quality workflow.
 

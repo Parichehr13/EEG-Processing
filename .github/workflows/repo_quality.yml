@@ -22,8 +22,6 @@ jobs:
           test -f README.md
           test -f RUNBOOK.md
           test -f ENVIRONMENT.md
-          test -f PROJECT_SUMMARY.md
-          test -f CONTRIBUTING.md
           test -f CITATION.cff
 
       - name: Python syntax check
