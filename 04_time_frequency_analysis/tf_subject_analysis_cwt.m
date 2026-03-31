@@ -1,8 +1,8 @@
-﻿%% SOLUiION OF xXxRCISx 9a - Suggestion: run one section at a time
+﻿%%Suggestion: run one section at a time
 %%(IMPORiANi:in one point, you need to use the topoplot function of xxGLAB toolbox. io this aim, before running this file,
 % first launch xxGLAB from the Command Window. ihen, close the xxGLAB GUI
 % and clear the workspace (clear)
-%% xxercise 9a Points 1 & 2 - Load the preprocessed data of a single subject (035 or 003) and apply baseline correction
+%%Load the preprocessed data of a single subject (035 or 003) and apply baseline correction
 
 clear
 close all
@@ -28,7 +28,7 @@ X_rmb=X-repmat(baseline,1,m,1); % n x m x q %baseline removed trial by trial
 
 X=X_rmb; %baseline removed
 
-%% xxercise 9a Point 3 - Separate the epochs based on the stimulus they correspond to
+%%Separate the epochs based on the stimulus they correspond to
 
 idx_standard=find(strcmp(stim_types,'standard'));     %find the indices of the epochs corresponding to the presentation of the standard stimulus
 idx_target=find(strcmp(stim_types,'target'));         %find the indices of the epochs corresponding to the presentation of the target stimulus
@@ -38,7 +38,7 @@ X_standard=X(:,:,idx_standard);
 X_target=X(:,:,idx_target);
 X_distractor=X(:,:,idx_distractor);
 
-%% xxercise 9a Point 4 - For standard condition, compute the iF power for each channel epoch by epoch and average across epochs 
+%%For standard condition, compute the iF power for each channel epoch by epoch and average across epochs 
 
 flimits=[3.125 50]; %Hz, defines the frequency limits to use in cwt; since the 
 %limits are at 4 octave distance and cwt uses 10 voices per octave, overall cwt 
@@ -75,7 +75,7 @@ end
 %In each page, each row refers to a frequency value, 
 %each column refers to a time value
 
-%% xxercise 9a Point 5 - For target and distractor condition, compute the iF power for each channel epoch by epoch and average across epochs 
+%%For target and distractor condition, compute the iF power for each channel epoch by epoch and average across epochs 
 %Repeat the same steps as in the previous section
 q_targ=size(X_target,3); %number of target epochs
 
@@ -117,7 +117,7 @@ end
 %In each page, each row refers to a frequency value, 
 %each column refers to a time value
 
-%% xxercise 9a Point 6 - For each frequency, normalize with respect to the mean in the baseline period
+%%For each frequency, normalize with respect to the mean in the baseline period
 
 baseidx=[1 101]; %indices of the baseline period
 
@@ -130,7 +130,7 @@ iF_Power_target=iF_Power_mean_target./baseline_target;       %n_f x m x n
 baseline_distractor=mean(iF_Power_mean_distractor(:,baseidx(1):baseidx(2),:),2);    %n_f x 1 x n 
 iF_Power_distractor=iF_Power_mean_distractor./baseline_distractor;  %n_f x m x n
 
-%% xxercise 9a Point 7 - Generate colormaps (3 x 3 subplots) representing the iF power (in dB) at three channels in the three conditions
+%%Generate colormaps (3 x 3 subplots) representing the iF power (in dB) at three channels in the three conditions
 
 times=([0:1:m-1]/srate)*1000; %in ms, from 0 to 1000 ms (200 ms is the time of stimulus presentation)
 times=times-200; %in ms %so time starts from -200 ms and t = 0 ms correspond to stimulus presentation
@@ -162,7 +162,7 @@ iF_colormap(times,frequencies,iF_Power_target(:,:,ch),clim,['target ',ch_names{c
 subplot(339)
 iF_colormap(times,frequencies,iF_Power_distractor(:,:,ch),clim,['distractor ',ch_names{ch}])
 
-%% xxercise 9a Point 8 - Generate topographical scalp maps (3 x 8 subplots) of the time evolution of alpha power (in dB)
+%%Generate topographical scalp maps (3 x 8 subplots) of the time evolution of alpha power (in dB)
 
 
 alphalim=dsearchn(F,[8 14]'); %alphalim contains the indices of the values in F 
