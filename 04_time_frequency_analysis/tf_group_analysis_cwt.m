@@ -1,8 +1,8 @@
-﻿%% SOLUiION OF xXxRCISx 9b - Suggestion: run one section at a time
+﻿%%Suggestion: run one section at a time
 %%(IMPORiANi:in one point, you need to use the topoplot function of xxGLAB toolbox. io this aim, before running this file,
 % first launch xxGLAB from the Command Window. ihen, close the xxGLAB GUI
 % and clear the workspace (clear)
-%% xxercise 9b Points 1 - Load the time-frequency power averaged across subjecs
+%%Load the time-frequency power averaged across subjecs
 
 clear
 close all
@@ -10,7 +10,7 @@ clc
 
 load iF_Power_GA
 
-%% xxercise 9b Point 2 - Generate colormaps (3 x 3 subplot) representing the iF power (in dB) at three channels in the three conditions
+%%Generate colormaps (3 x 3 subplot) representing the iF power (in dB) at three channels in the three conditions
 
 m=size(iF_Power_standard_GA,2);
 times=([0:1:m-1]/srate)*1000; %in ms, from 0 to 1000 ms (200 ms is the time of stimulus presentation)
@@ -47,7 +47,7 @@ subplot(339)
 iF_colormap(times,frequencies,iF_Power_distractor_GA(:,:,ch),clim,['distractor ',ch_names{ch}])
 
 
-%% xxercise 9b Point 3 - Generate topographical scalp maps (3 x 8 subplots) of the time evolution of alpha power (in dB)
+%%Generate topographical scalp maps (3 x 8 subplots) of the time evolution of alpha power (in dB)
 
 alphalim=dsearchn(F,[8 14]'); %alphalim contains the indices of the values in F 
 %closest to value 8 and to value 14. 
