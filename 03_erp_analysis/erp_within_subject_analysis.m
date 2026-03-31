@@ -1,8 +1,8 @@
-﻿%% SOLUTION OF xXxRCISx 8a - Suggestion: run one section at a time
+﻿%%Suggestion: run one section at a time
 %%(IMPORTANT:in one point, you need to use the topoplot function of xxGLAB toolbox. To this aim, before running this file,
 % first launch xxGLAB from the Command Window. Then, close the xxGLAB GUI
 % and clear the workspace (clear)
-%% xxercise 8a Points 1 & 2 - Load the preprocessed data of a single subject (035 or 003) and apply baseline correction
+%%Load the preprocessed data of a single subject (035 or 003) and apply baseline correction
 
 clear
 close all
@@ -28,7 +28,7 @@ X_rmb=X-baseline;  % X_rmb has size n x m x q %baseline removed trial by trial
 
 X=X_rmb; %rewrite X; now X has the baseline removed
 
-%% xxercise 8a Point 3 - Separate the epochs based on the stimulus they correspond to
+%%Separate the epochs based on the stimulus they correspond to
 
 idx_standard=find(strcmp(stim_types,'standard'));     %find the indices of the epochs corresponding to the presentation of the standard stimulus
 idx_target=find(strcmp(stim_types,'target'));         %find the indices of the epochs corresponding to the presentation of the target stimulus
@@ -38,13 +38,13 @@ X_standard=X(:,:,idx_standard);     % X_standard is a 3D matrix with size n x m 
 X_target=X(:,:,idx_target);         % X_target is a 3D matrix with size n x m x q_targ where q_targ is the number of the target epochs
 X_distractor=X(:,:,idx_distractor); % X_distractor is a 3D matrix with size n x m x q_distr where q_distr is the number of the distractor epochs
 
-%% xxercise 8a Point 4 - Compute the Within-Subject Average at all electrodes, condition by condition
+%%Compute the Within-Subject Average at all electrodes, condition by condition
 
 WSA_standard=mean(X_standard,3);     % n x m %average of the epochs corresponding to standard stimulus
 WSA_target=mean(X_target,3);         % n x m %average of the epochs corresponding to target stimulus
 WSA_distractor=mean(X_distractor,3); % n x m %average of the epochs corresponding to distractor stimulus
 
-%% xxercise 8a Point 5 - Plot the WSA waveforms for channels Fz, Cz, Pz in the three conditions
+%%Plot the WSA waveforms for channels Fz, Cz, Pz in the three conditions
 
 time=([0:1:m-1]/srate)*1000; %in ms, from 0 to 1000 ms ( 200 ms is the time of stimulus presentation)
 time=time-200; %in ms so time starts from -200 ms and t = 0 ms corresponds to stimulus presentation
@@ -90,7 +90,7 @@ set(l,'fontsize',7,'location',location_legend)
 title(ch_names{ch_P})
 grid
 
-%% xxercise 8a Point 6 - Plot the topographical maps of WSA waveforms at different times, for the three conditions
+%%Plot the topographical maps of WSA waveforms at different times, for the three conditions
 
 frames=[0:0.1:0.7]*srate+0.2*srate; %frames contain the time samples corresponding to the time instants [0 0.1 0.2 0.3 0.4 0.5 0.6 0.7] s
 % where 0 s corresponds to the stimulus presentation (0.2 s from the  beginning of the epoch)
