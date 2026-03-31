@@ -1,4 +1,4 @@
-﻿%% SOLUTION OF xXxRCISx 8b - Suggestion: run one section at a time
+﻿%%Suggestion: run one section at a time
 %%(IMPORTANT:in one point, you need to use the topoplot function of xxGLAB toolbox. To this aim, before running this file,
 % first launch xxGLAB from the Command Window. Then, close the xxGLAB GUI
 % and clear the workspace (clear)
@@ -15,7 +15,7 @@ GA_standard=mean(WSA_standard_allsubj,3);     %n=60 chans x 500 samples
 GA_target=mean(WSA_target_allsubj,3);         %n=60 chans x 500 samples 
 GA_distractor=mean(WSA_distractor_allsubj,3); %n=60 chans x 500 samples 
 
-%% xxercise 8b Point 3 - Plot the GA waveforms for channels Fz, Cz, Pz in the three conditions
+%%Plot the GA waveforms for channels Fz, Cz, Pz in the three conditions
 
 ch_F=12; %Fz
 ch_C=30; %Cz
@@ -63,7 +63,7 @@ set(l,'fontsize',7,'location',location_legend)
 title(ch_names{ch_P})
 grid
 
-%% xxercise 8b Point 4 - Plot the topographical maps of GA at different times, for the three conditions
+%%Plot the topographical maps of GA at different times, for the three conditions
 
 frames = [0.2:0.1:0.9]*srate;
 n_condition=3; % number of conditions =3 (standard target distractor)
