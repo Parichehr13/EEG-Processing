@@ -3,7 +3,7 @@
 % first launch xxGLAB from the Command Window. Then, close the xxGLAB GUI
 % and clear the workspace (clear)
 
-%% xxercise 8b Points 1 & 2 - Load the file containing WSA of all subjects and compute the Grand Averages
+%%Load the file containing WSA of all subjects and compute the Grand Averages
  
 clear
 close all
