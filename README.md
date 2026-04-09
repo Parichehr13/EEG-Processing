@@ -1,7 +1,3 @@
-﻿# EEG Processing Project
- 
-This repository covers EEG preprocessing, ICA artifact removal, ERP analysis, time-frequency analysis, and motor-imagery decoding
-
 ## EEG Processing Pipeline
 
 1. `01_preprocessing`
