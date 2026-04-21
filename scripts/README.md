@@ -1,36 +1,24 @@
 # Runner Scripts
 
+These helpers are thin wrappers for running the main MATLAB workflow from the repository root.
+
 ## MATLAB
 
-From repository root:
+Run the modules individually:
 
 ```matlab
 addpath('scripts');
-run_stage01();
-run_stage02(true);
-run_stage03();
-run_stage04();
+run_preprocessing();
+run_ica_workflows(true);
+run_erp_analysis();
+run_time_frequency_analysis();
 ```
 
-Or run the full MATLAB chain:
+Run the full workflow:
 
 ```matlab
 addpath('scripts');
-run_all_matlab_stages(true);
-```
-
-## Python (Stage 05)
-
-From repository root:
-
-```powershell
-python scripts/run_stage05.py
-```
-
-If needed, use the local venv interpreter:
-
-```powershell
-.\05_decoding_classification\python\.venv\Scripts\python.exe scripts\run_stage05.py
+run_full_pipeline(true);
 ```
 
 ## Validation
