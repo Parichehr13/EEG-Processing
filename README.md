@@ -1,54 +1,57 @@
 # EEG Processing
 
-GitHub repository: [Parichehr13/EEG-Processing](https://github.com/Parichehr13/EEG-Processing)
+EEG signal-processing workflow for offline preprocessing and classical analysis of resting-state and oddball-style recordings. The repository is organized around a practical MATLAB pipeline for filtering, epoching, bad-channel screening, ICA-based artifact handling, ERP estimation, and time-frequency analysis, with saved intermediate datasets and representative figures kept alongside the analysis code.
 
-End-to-end EEG preprocessing and classical analysis workflow built around resting-state and oddball-style recordings. The repository focuses on signal conditioning, ICA-based artifact handling, ERP estimation, and time-frequency analysis, with the emphasis on transparent methodology rather than inflated claims or framework-heavy software design.
+The emphasis is methodological clarity rather than novelty claims: this is a compact end-to-end EEG methods project, not a benchmark dataset release or a general-purpose software framework. Motor-imagery decoding that previously appeared in this repository has been moved to a separate project so the scope here stays focused on preprocessing and classical EEG analysis.
 
-This project is organized as a sequential analysis workflow: raw EEG is cleaned, converted into analysis-ready tensors, and then reused for downstream ERP and time-frequency studies. Supporting method-development notes are kept in a separate appendix so the main repository narrative stays focused.
+## Project Scope
 
-Motor-imagery decoding work that previously lived in this repository has been intentionally spun out into a separate dedicated repository so the scope here stays focused on preprocessing and classical EEG analysis.
-
-## Scope
-
-- EEG preprocessing with detrending, filtering, epoch extraction, and bad-channel screening
-- ICA-assisted artifact analysis across several practical case studies
-- Preprocessing completion to cleaned, re-referenced `PreprocessStep2` datasets
-- Single-subject and group-level ERP analysis
-- Single-subject and group-level time-frequency analysis using continuous wavelet transforms
-- Method-development appendix for PCA/ICA source-separation concepts
-
-## Why This Repository Is Useful
-
-- It shows a full signal-processing path rather than an isolated notebook or single experiment.
-- It keeps intermediate artifacts, figures, and written interpretation close to the analysis code.
-- It demonstrates EEG-specific judgment: filtering choices, artifact inspection, re-referencing, condition-wise averaging, and time-frequency interpretation.
+- preprocessing from raw EEG to `PreprocessStep1`
+- ICA-centered artifact analysis across several recording configurations
+- completion of the main preprocessing branch to cleaned `PreprocessStep2` datasets
+- within-subject and group-level ERP analysis
+- within-subject and group-level time-frequency analysis using continuous wavelet transforms
+- a small appendix on PCA/ICA source-separation concepts
 
 ## Workflow
 
 1. `pipeline/01_preprocessing`
-   Produces the first analysis-ready EEG snapshot from raw recordings by applying detrending, filtering, event alignment, epoch extraction, and bad-channel detection.
+   Detrending, filtering, event alignment, epoch extraction, and bad-channel screening.
 
 2. `pipeline/02_artifact_removal_ica`
-   Collects ICA-based artifact-cleaning case studies and completes the main preprocessing branch to `PreprocessStep2` outputs for downstream analysis.
+   ICA case studies plus pipeline completion to cleaned, re-referenced `PreprocessStep2` outputs.
 
 3. `pipeline/03_erp_analysis`
-   Builds within-subject and group-level ERPs from cleaned epochs and summarizes condition-dependent temporal and topographic responses.
+   Within-subject and grand-average ERP estimation with waveform and scalp-topography summaries.
 
 4. `pipeline/04_time_frequency_analysis`
-   Extends the ERP branch into the time-frequency domain using CWT-based power estimation and alpha-band topographic summaries.
+   CWT-based power analysis with subject-level spectrograms and group-level alpha summaries.
 
 5. `appendix/ica_source_separation_concepts`
-   Contains a compact method-development note on PCA and ICA behavior in synthetic mixtures. It supports the main workflow but is not presented as the core contribution of the repository.
+   Supporting method-development note kept outside the core analysis path.
 
-## Representative Outputs
+## Outputs
 
-### Preprocessing and artifact handling
-![Preprocessing output](pipeline/01_preprocessing/figures/stage01_p08_fig_001.png)
-![Pipeline completion output](pipeline/02_artifact_removal_ica/05_pipeline_completion/figures/stage02e_sub035_fig_006.png)
+| Workflow stage | Main saved outputs | Analysis level |
+| --- | --- | --- |
+| Preprocessing | `sub-035_PreprocessStep1.mat`, preprocessing QC figures | Single-subject |
+| ICA and pipeline completion | `sub-003_PreprocessStep2.mat`, `sub-035_PreprocessStep2.mat`, IC inspection and cleaning figures | Single-subject |
+| ERP analysis | within-subject ERP figures, `WSA_allsubjects.mat`, grand-average ERP figures | Single-subject and group-level |
+| Time-frequency analysis | subject-level CWT figures, `TF_Power_GA.mat`, grand-average alpha/topography figures | Single-subject and group-level |
 
-### ERP and time-frequency analysis
-![ERP grand average](pipeline/03_erp_analysis/figures/stage03b_p04_fig_001.png)
-![Time-frequency grand average](pipeline/04_time_frequency_analysis/figures/stage04b_p03_fig_001.png)
+## Representative Figures
+
+![Preprocessing quality-control example](pipeline/01_preprocessing/figures/stage01_p08_fig_001.png)
+Filtering quality-control view used during preprocessing.
+
+![Pipeline completion example](pipeline/02_artifact_removal_ica/05_pipeline_completion/figures/stage02e_sub035_fig_006.png)
+Example artifact-removal result from the preprocessing-completion branch.
+
+![ERP grand-average example](pipeline/03_erp_analysis/figures/stage03b_p04_fig_001.png)
+Grand-average ERP scalp summary for the oddball branch.
+
+![Time-frequency grand-average example](pipeline/04_time_frequency_analysis/figures/stage04b_p03_fig_001.png)
+Group-level alpha-band topography from the CWT workflow.
 
 ## Repository Layout
 
@@ -60,10 +63,7 @@ EEG-Processing/
 |   |-- 03_erp_analysis/
 |   `-- 04_time_frequency_analysis/
 |-- appendix/
-|   |-- README.md
 |   `-- ica_source_separation_concepts/
-|-- docs/
-|   `-- cv_summary.md
 |-- scripts/
 |   |-- run_preprocessing.m
 |   |-- run_ica_workflows.m
@@ -78,13 +78,13 @@ EEG-Processing/
 
 - MATLAB
 - Signal Processing Toolbox
-- EEGLAB for ICA inspection, scalp maps, and interpolation-dependent steps
+- EEGLAB for IC inspection, scalp maps, and interpolation-dependent steps
 
-The repository is not packaged as a general-purpose Python library. It is intended as a reproducible research workflow with MATLAB scripts, saved intermediate datasets, and curated outputs.
+The repository is intended as a reproducible research workflow with MATLAB scripts, preserved intermediate datasets, and curated outputs. It is not packaged as a standalone EEG toolbox.
 
 ## Usage
 
-From the repository root in MATLAB:
+Run the workflow from the repository root in MATLAB:
 
 ```matlab
 addpath('scripts');
@@ -94,7 +94,7 @@ run_erp_analysis();
 run_time_frequency_analysis();
 ```
 
-Or run the full workflow:
+Or run the full sequence:
 
 ```matlab
 addpath('scripts');
@@ -108,20 +108,20 @@ addpath('scripts');
 validate_outputs();
 ```
 
-## Module Notes
+## Notes
 
-- Each workflow directory includes a local `README.md` describing its purpose, inputs, outputs, and representative figures.
-- Outputs are stored next to the scripts that generate them so preprocessing decisions and downstream interpretations stay easy to trace.
-- The repository favors clarity and reproducibility over excessive abstraction.
+- Each workflow directory includes a local `README.md` describing inputs, outputs, and representative figures.
+- Outputs are stored next to the scripts that generate them so preprocessing decisions remain easy to trace.
+- The repository favors readability and reproducibility over heavy abstraction.
 
 ## Limitations
 
-- The main oddball analysis branch is small in subject count, so the group-level results should be read as a compact technical study rather than a large-sample neuroscience claim.
-- ICA rejection still depends on EEGLAB-assisted inspection and manual judgment, which is realistic for EEG work but not fully automated.
-- The repository focuses on classical EEG processing and interpretation rather than benchmark-scale model development.
+- The oddball branch is small in subject count, so the group-level outputs should be read as a compact technical study rather than a population-scale neuroscience claim.
+- ICA rejection still depends on EEGLAB-assisted inspection and manual judgment.
+- The project focuses on classical EEG processing and interpretation rather than machine-learning benchmarking.
 
 ## Future Improvements
 
-- Add lightweight environment capture for MATLAB and EEGLAB versions used in exported outputs.
-- Add a small number of scripted figure-regeneration checks for easier public reproducibility.
-- Expand documentation around data provenance and analysis assumptions where raw-source metadata allow it.
+- record MATLAB and EEGLAB version metadata alongside exported outputs
+- add lightweight figure-regeneration checks for easier reproducibility
+- expand data-provenance notes where source metadata are available
